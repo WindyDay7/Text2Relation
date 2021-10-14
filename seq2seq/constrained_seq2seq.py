@@ -95,6 +95,8 @@ class ConstraintSeq2SeqTrainer(Seq2SeqTrainer):
         else:
             self.label_smoother = None
 
+        # decoding_type_schema was read from decode schema file
+        # type_list = json.loads(lines[0])
         if self.args.constraint_decoding:
             self.constraint_decoder = get_constraint_decoder(tokenizer=self.tokenizer,
                                                              type_schema=self.decoding_type_schema,
@@ -112,9 +114,7 @@ class ConstraintSeq2SeqTrainer(Seq2SeqTrainer):
     ) -> Tuple[Optional[float], Optional[torch.Tensor], Optional[torch.Tensor]]:
         """
         Perform an evaluation step on :obj:`model` using obj:`inputs`.
-
         Subclass and override to inject custom behavior.
-
         Args:
             model (:obj:`nn.Module`):
                 The model to evaluate.

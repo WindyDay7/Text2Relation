@@ -13,7 +13,6 @@ debug_step = True if 'DEBUG_STEP' in os.environ else False
 
 def match_sublist(the_list, to_match):
     """
-
     :param the_list: [1, 2, 3, 4, 5, 6, 1, 2, 4, 5]
     :param to_match: [1, 2]
     :return:
@@ -28,6 +27,10 @@ def match_sublist(the_list, to_match):
 
 
 def find_bracket_position(generated_text, _type_start, _type_end):
+    """
+    Find the bracket position in generated text, return a dictionary,
+    bracket and their corresponding position list
+    """
     bracket_position = {_type_start: list(), _type_end: list()}
     for index, char in enumerate(generated_text):
         if char in bracket_position:
@@ -36,6 +39,7 @@ def find_bracket_position(generated_text, _type_start, _type_end):
 
 
 def generated_search_src_sequence(generated, src_sequence, end_sequence_search_tokens=None):
+    # which tokens cloud be generated in next step
     print(generated, src_sequence) if debug else None
 
     if len(generated) == 0:
@@ -45,12 +49,17 @@ def generated_search_src_sequence(generated, src_sequence, end_sequence_search_t
     matched_tuples = match_sublist(the_list=src_sequence, to_match=generated)
 
     valid_token = list()
+    # generated text have appear in the scource sentence
+    # generate the next token in the source sentence
     for _, end in matched_tuples:
         next_index = end + 1
         if next_index < len(src_sequence):
             valid_token += [src_sequence[next_index]]
 
+    # next token might be the end token
     if end_sequence_search_tokens:
+        # print(end_sequence_search_tokens)
+        # print(valid_token)
         valid_token += end_sequence_search_tokens
 
     return valid_token
@@ -69,6 +78,9 @@ def get_constraint_decoder(tokenizer, type_schema, decoding_schema, source_prefi
 
 
 class ConstraintDecoder:
+    """
+    source_prefix = data_args.source_prefix if data_args.source_prefix is not None else ""
+    """
     def __init__(self, tokenizer, source_prefix):
         self.tokenizer = tokenizer
         self.source_prefix = source_prefix
@@ -104,21 +116,27 @@ class ConstraintDecoder:
 
 
 class TreeConstraintDecoder(ConstraintDecoder):
+    """
+    rewrite constraint_decoding method 
+    """
     def __init__(self, tokenizer, type_schema, *args, **kwargs):
         super().__init__(tokenizer, *args, **kwargs)
         self.tree_end = '<tree-end>'
-        self.type_tree = get_label_name_tree(
+        self.relation_tree = get_label_name_tree(
             type_schema.type_list, self.tokenizer, end_symbol=self.tree_end)
-        self.role_tree = get_label_name_tree(
-            type_schema.role_list, self.tokenizer, end_symbol=self.tree_end)
         self.type_start = self.tokenizer.convert_tokens_to_ids([type_start])[0]
         self.type_end = self.tokenizer.convert_tokens_to_ids([type_end])[0]
 
     def check_state(self, tgt_generated):
+        """
+        return the generated tree state and the last special token's index, 
+        """
         if tgt_generated[-1] == self.tokenizer.pad_token_id:
             return 'start', -1
 
         special_token_set = {self.type_start, self.type_end}
+        # the indexes of special tokens in the generated sentences
+        # and the kind of special token
         special_index_token = list(
             filter(lambda x: x[1] in special_token_set, list(enumerate(tgt_generated))))
 
@@ -135,65 +153,64 @@ class TreeConstraintDecoder(ConstraintDecoder):
 
         if start_number == end_number:
             return 'end_generate', -1
+        # generate the first relation
         if start_number == end_number + 1:
             state = 'start_first_generation'
+        # generation the relation text
         elif start_number == end_number + 2:
-            state = 'generate_trigger'
+            state = 'generate_relation'
+        # generate the first entity
         elif start_number == end_number + 3:
-            state = 'generate_role'
+            state = 'generate_role_1'
+        # generate the second entity
+        elif start_number == end_number + 4:
+            state = "generate_role_2"
         else:
             state = 'error'
         return state, last_special_index
 
-    def search_prefix_tree_and_sequence(self, generated: List[str], prefix_tree: Dict, src_sentence: List[str],
-                                        end_sequence_search_tokens: List[str] = None):
+    def search_prefix_tree_and_sequence(self, generated: List[str], prefix_tree: Dict):
         """
-        Generate Type Name + Text Span
-        :param generated:
-        :param prefix_tree:
-        :param src_sentence:
-        :param end_sequence_search_tokens:
+        This part is for relation text, for example, "PART-WHOLE"
+        :param generated: from the type token to the end, for example, because, after tokenizer
+        it's length might longer than 2
+        :param prefix_tree: relation tree
+        :param src_sentence: source sentence token ids
+        :param end_sequence_search_tokens: start or end token 
         :return:
         """
         tree = prefix_tree
+        # generated is from "<" to the end, the first is the event type
         for index, token in enumerate(generated):
+            # then tree is event type token id
             tree = tree[token]
+            # sometimes the end of event type is 1, this means token == 1
+            # wheather the event type text is end, means event type text have been generated
             is_tree_end = len(tree) == 1 and self.tree_end in tree
-
             if is_tree_end:
-                valid_token = generated_search_src_sequence(
-                    generated=generated[index + 1:],
-                    src_sequence=src_sentence,
-                    end_sequence_search_tokens=end_sequence_search_tokens,
-                )
+                valid_token = [self.type_start, self.type_end]
                 return valid_token
-
+            # if end trigger token appears in the generated text 
             if self.tree_end in tree:
                 try:
-                    valid_token = generated_search_src_sequence(
-                        generated=generated[index + 1:],
-                        src_sequence=src_sentence,
-                        end_sequence_search_tokens=end_sequence_search_tokens,
-                    )
+                    valid_token = [self.type_start, self.type_end]
                     return valid_token
                 except IndexError:
                     # Still search tree
                     continue
-
+        
         valid_token = list(tree.keys())
         return valid_token
 
     def get_state_valid_tokens(self, src_sentence, tgt_generated):
         """
-
-        :param src_sentence:
-        :param tgt_generated:
+        :param src_sentence is List of ids, there are token ids
+        :param tgt_generated is also List of ids
         :return:
             List[str], valid token list
         """
         if self.tokenizer.eos_token_id in src_sentence:
-            src_sentence = src_sentence[:src_sentence.index(
-                self.tokenizer.eos_token_id)]
+            src_sentence = src_sentence[:src_sentence.index(self.tokenizer.eos_token_id)]
 
         state, index = self.check_state(tgt_generated)
 
@@ -211,35 +228,41 @@ class TreeConstraintDecoder(ConstraintDecoder):
         elif state == 'start_first_generation':
             valid_tokens = [self.type_start, self.type_end]
 
-        elif state == 'generate_trigger':
-
+        elif state == 'generate_relation':
+            # this part might be the first trigger generation, or the next role generation
             if tgt_generated[-1] == self.type_start:
                 # Start Event Label
-                return list(self.type_tree.keys())
+                return list(self.relation_tree.keys())
 
             elif tgt_generated[-1] == self.type_end:
-                # EVENT_TYPE_LEFT: Start a new role
-                # EVENT_TYPE_RIGHT: End this event
-                return [self.type_start, self.type_end]
+                # EVENT_TYPE_LEFT: Start a new entity span
+                # EVENT_TYPE_RIGHT: End this relation
+                return [self.type_start, self.type_end] + list(self.relation_tree.keys())
             else:
+                # generate the triggrt span, for example "name: Zhang ling"
                 valid_tokens = self.search_prefix_tree_and_sequence(
                     generated=tgt_generated[index + 1:],
-                    prefix_tree=self.type_tree,
-                    src_sentence=src_sentence,
-                    end_sequence_search_tokens=[self.type_start, self.type_end]
+                    prefix_tree=self.relation_tree,
                 )
 
-        elif state == 'generate_role':
-
-            if tgt_generated[-1] == self.type_start:
-                # Start Role Label
-                return list(self.role_tree.keys())
+        elif state == 'generate_role_1':
+            # which position should be generated for new token
+            # tgt_generated[index] is the last special token
+            if tgt_generated[-1] == self.type_end:
+                return [self.type_end]
 
             generated = tgt_generated[index + 1:]
-            valid_tokens = self.search_prefix_tree_and_sequence(
+            valid_tokens = generated_search_src_sequence(
                 generated=generated,
-                prefix_tree=self.role_tree,
-                src_sentence=src_sentence,
+                src_sequence=src_sentence,
+                end_sequence_search_tokens=[self.type_start],
+            )
+
+        elif state == 'generate_role_2':
+            generated = tgt_generated[index + 1:]
+            valid_tokens = generated_search_src_sequence(
+                generated=generated,
+                src_sequence=src_sentence,
                 end_sequence_search_tokens=[self.type_end]
             )
 
@@ -334,7 +357,6 @@ class SpanConstraintDecoder(ConstraintDecoder):
 
     def get_state_valid_tokens(self, src_sentence, tgt_generated):
         """
-
         :param src_sentence:
         :param tgt_generated:
         :return:

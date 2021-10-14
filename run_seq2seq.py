@@ -238,20 +238,20 @@ class DataTrainingArguments:
                 assert extension in [
                     "csv", "json"], "`validation_file` should be a csv or a json file."
         if not self.task.startswith("summarization") and not self.task.startswith(
-                "translation") and not self.task.startswith('event'):
+                "translation") and not self.task.startswith('relation'):
             raise ValueError(
                 "`task` should be summarization, summarization_{dataset}, translation or translation_{xx}_to_{yy}."
             )
         if self.val_max_target_length is None:
             self.val_max_target_length = self.max_target_length
 
-    # Start Code for Event Extraction
+    # Start Code for Relation Extraction
     decoding_format: str = field(
         default='tree',
         metadata={"help": "Decoding Format, valid in %s" %
                   decoding_format_dict.keys()}
     )
-    event_schema: str = field(
+    relation_schema: str = field(
         default=None, metadata={"help": "The input event schema file."}
     )
     # End Code for Event Extraction
@@ -271,8 +271,8 @@ summarization_name_mapping = {
     "wiki_summary": ("article", "highlights"),
 }
 
-event_extraction_name_mapping = {
-    "event": ("text", "event")
+relation_extraction_name_mapping = {
+    "relation": ("text", "relation")
 }
 
 
@@ -289,7 +289,9 @@ def main():
         model_args, data_args, training_args = parser.parse_json_file(
             json_file=os.path.abspath(sys.argv[1]))
     else:
+        # Get arguments from here
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
+        # print("Nothing"), we use this method to get arguments
 
     print(model_args)
     print(data_args)
@@ -298,6 +300,7 @@ def main():
     # Detecting last checkpoint.
     last_checkpoint = None
     if os.path.isdir(training_args.output_dir) and training_args.do_train and not training_args.overwrite_output_dir:
+        # get last_checkpoint from last output dir
         last_checkpoint = get_last_checkpoint(training_args.output_dir)
         if last_checkpoint is None and len(os.listdir(training_args.output_dir)) > 0:
             raise ValueError(
@@ -373,7 +376,6 @@ def main():
         cache_dir=model_args.cache_dir,
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
-        mirror='tuna',
     )
 
     # !!! Sometimes default max_length is setting to 20.
@@ -385,7 +387,6 @@ def main():
         use_fast=model_args.use_fast_tokenizer,
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
-        mirror='tuna',
     )
 
     to_remove_token_list = list()
@@ -403,10 +404,12 @@ def main():
         cache_dir=model_args.cache_dir,
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
-        mirror='tuna',
+        # mirror='tuna',
     )
 
-    if tokenizer.encode("<extra_id_0> <extra_id_1>") != [32099, 32098, 1]:
+    # model = AutoModelWithLMHead.from_pretrained("t5-base")
+
+    if tokenizer.encode("<extra_id_0> <extra_id_1>") != [32099, 32098, 32097, 1]:
         # For non-t5 tokenizer
         tokenizer.add_special_tokens(
             {"additional_special_tokens": ["<extra_id_0>", "<extra_id_1>"]})
@@ -420,9 +423,10 @@ def main():
             "Make sure that `config.decoder_start_token_id` is correctly defined")
 
     prefix = data_args.source_prefix if data_args.source_prefix is not None else ""
-
+    # column_names is "text"  and "relation"
     # Preprocessing the datasets.
     # We need to tokenize inputs and targets.
+    # Names of the columns in the dataset.
     if training_args.do_train:
         column_names = datasets["train"].column_names
     elif training_args.do_eval:
@@ -434,18 +438,11 @@ def main():
             "There is nothing to do. Please pass `do_train`, `do_eval` and/or `do_predict`.")
         return
 
-    # For translation we set the codes of our source and target languages (only useful for mBART, the others will
-    # ignore those attributes).
-    if data_args.task.startswith("translation"):
-        if data_args.source_lang is not None:
-            tokenizer.src_lang = data_args.source_lang
-        if data_args.target_lang is not None:
-            tokenizer.tgt_lang = data_args.target_lang
-
-    # Start Code for Event Extraction
-    if data_args.task.startswith("event"):
+    # Start Code for relation Extraction
+    # There are three part in schema, type_list, role_list and type_role_corresponding_dictionary
+    if data_args.task.startswith("relation"):
         decoding_type_schema = EventSchema.read_from_file(
-            data_args.event_schema)
+            data_args.relation_schema)
     else:
         decoding_type_schema = None
     # End Code for Event Extraction
@@ -454,9 +451,8 @@ def main():
     # them all).
     source_lang, target_lang, text_column, summary_column = None, None, None, None
 
-    if data_args.task.startswith("summarization"):
-        # Get the column names for input/target.
-        dataset_columns = summarization_name_mapping.get(
+    if data_args.task.startswith("relation"):
+        dataset_columns = relation_extraction_name_mapping.get(
             data_args.dataset_name, None)
         if data_args.text_column is None:
             text_column = dataset_columns[0] if dataset_columns is not None else column_names[0]
@@ -466,38 +462,7 @@ def main():
             summary_column = dataset_columns[1] if dataset_columns is not None else column_names[1]
         else:
             summary_column = data_args.summary_column
-    # Start Code for Event Extraction
-    elif data_args.task.startswith("event"):
-        dataset_columns = event_extraction_name_mapping.get(
-            data_args.dataset_name, None)
-        if data_args.text_column is None:
-            text_column = dataset_columns[0] if dataset_columns is not None else column_names[0]
-        else:
-            text_column = data_args.text_column
-        if data_args.summary_column is None:
-            summary_column = dataset_columns[1] if dataset_columns is not None else column_names[1]
-        else:
-            summary_column = data_args.summary_column
-    # End Code for Event Extraction
-    else:
-        # Get the language codes for input/target.
-        lang_search = re.match(
-            "translation_([a-z]+)_to_([a-z]+)", data_args.task)
-        if data_args.source_lang is not None:
-            source_lang = data_args.source_lang.split("_")[0]
-        else:
-            assert (
-                lang_search is not None
-            ), "Provide a source language via --source_lang or rename your task 'translation_xx_to_yy'."
-            source_lang = lang_search.groups()[0]
-
-        if data_args.target_lang is not None:
-            target_lang = data_args.target_lang.split("_")[0]
-        else:
-            assert (
-                lang_search is not None
-            ), "Provide a target language via --target_lang or rename your task 'translation_xx_to_yy'."
-            target_lang = lang_search.groups()[1]
+    # End Code for relation Extraction
 
     # Temporarily set max_target_length for training.
     max_target_length = data_args.max_target_length
@@ -516,6 +481,7 @@ def main():
         else:
             inputs = examples[text_column]
             targets = examples[summary_column]
+        # the prefix is the task name here, it is a sign of the event
         inputs = [prefix + inp for inp in inputs]
         model_inputs = tokenizer(
             inputs, max_length=data_args.max_source_length, padding=padding, truncation=True)
@@ -535,6 +501,7 @@ def main():
         model_inputs["labels"] = labels["input_ids"]
         return model_inputs
 
+    # Processing the data
     if training_args.do_train:
         train_dataset = datasets["train"]
         if data_args.max_train_samples is not None:
@@ -577,6 +544,7 @@ def main():
         )
 
     # Data collator
+    # pad_to_multiple_of If set will pad the sequence to a multiple of the provided value.
     label_pad_token_id = - \
         100 if data_args.ignore_pad_token_for_loss else tokenizer.pad_token_id
     if data_args.pad_to_max_length:
@@ -591,6 +559,8 @@ def main():
 
     def compute_metrics(eval_preds):
         preds, labels = eval_preds
+        # print("preds is: ", preds[0])
+        # print("labels is: ", labels[0])
         if isinstance(preds, tuple):
             preds = preds[0]
         decoded_preds = tokenizer.batch_decode(
@@ -598,6 +568,7 @@ def main():
         if data_args.ignore_pad_token_for_loss:
             # Replace -100 in the labels as we can't decode them.
             labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+        # Convert a list of lists of token ids into a list of strings by calling decode.
         decoded_labels = tokenizer.batch_decode(
             labels, skip_special_tokens=False)
 
@@ -606,9 +577,12 @@ def main():
                 x_str = x_str.replace(to_remove_token, '')
             return x_str.strip()
 
+        # clean some special tokens, for example eos, start token
         decoded_preds = [clean_str(x) for x in decoded_preds]
         decoded_labels = [clean_str(x) for x in decoded_labels]
-
+        # print("preds is: ", decoded_preds)
+        # print("labels is: ", decoded_labels)
+        # decoding_type_schema is the schema file
         result = get_extract_metrics(
             pred_lns=decoded_preds,
             tgt_lns=decoded_labels,
@@ -623,6 +597,7 @@ def main():
         return result
 
     # Initialize our Trainer
+    # decoding_type_schema was read from decode schema file
     trainer = ConstraintSeq2SeqTrainer(
         model=model,
         args=training_args,
@@ -646,13 +621,13 @@ def main():
         #     checkpoint = None
         # TODO fix better about max_length
         checkpoint = None
-
+        #
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
         trainer.save_model()  # Saves the tokenizer too for easy upload
         decoding_type_schema.write_to_file(
             os.path.join(
                 training_args.output_dir,
-                "event.schema",
+                "relation.schema",
             )
         )
 
@@ -668,7 +643,6 @@ def main():
             # Need to save the state, since Trainer.save_model saves only the tokenizer with the model
             trainer.state.save_to_json(os.path.join(
                 training_args.output_dir, "trainer_state.json"))
-
 
     # Evaluation
     results = {}

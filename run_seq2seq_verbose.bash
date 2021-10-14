@@ -2,12 +2,12 @@
 # -*- coding:utf-8 -*-
 
 EXP_ID=$(date +%F-%H-%M-$RANDOM)
-export CUDA_VISIBLE_DEVICES="0"
-export batch_size="16"
-export model_name=t5-base
+export CUDA_VISIBLE_DEVICES="1"
+export batch_size="8"
+export model_name="./pretrain_model"
 export data_name=one_ie_ace2005_subtype
 export lr=5e-5
-export task_name="event"
+export task_name="relation"
 export seed="421"
 export lr_scheduler=constant_with_warmup
 export label_smoothing="0"
@@ -112,7 +112,7 @@ done
 model_name_log=$(echo ${model_name} | sed -s "s/\//_/g")
 
 model_folder=models/CF_${EXP_ID}_${model_name_log}_${decoding_format}_${data_name}_${lr_scheduler}_lr${lr}_ls${label_smoothing}_${batch_size}_wu${warmup_steps}
-data_folder=data/text2${decoding_format}/${data_name}
+data_folder=data/new_text2${decoding_format}/${data_name}
 
 export TOKENIZERS_PARALLELISM=false
 
@@ -124,7 +124,7 @@ CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES} python run_seq2seq.py \
     --use_fast_tokenizer=False \
     --evaluation_strategy steps \
     --predict_with_generate \
-    --metric_for_best_model eval_role-F1 \
+    --metric_for_best_model eval_relation-F1 \
     --save_total_limit 1 \
     --load_best_model_at_end \
     --max_source_length=256 \
@@ -134,7 +134,7 @@ CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES} python run_seq2seq.py \
     --train_file=${data_folder}/train.json \
     --validation_file=${data_folder}/val.json \
     --test_file=${data_folder}/test.json \
-    --event_schema=${data_folder}/event.schema \
+    --relation_schema=${data_folder}/relation.schema \
     --per_device_train_batch_size=${batch_size} \
     --per_device_eval_batch_size=$((batch_size * 4)) \
     --output_dir=${output_dir} \

@@ -12,10 +12,32 @@ class DyIEPP(TaskFormat):
         self.ner = doc_json['ner']
         self.relations = doc_json['relations']
         self.events = doc_json['events']
-        self.sentence_start = doc_json.get('sentence_start', doc_json['_sentence_start'])
+        self.sentence_start = doc_json.get(
+            'sentence_start', doc_json['_sentence_start'])
+
+    def generate_relations(self):
+        for relations_in_sentence, sentence_start, sentence in zip(self.relations, self.sentence_start, self.sentences):
+            relations = list()
+            for relation in relations_in_sentence:
+                # 'arguments': [['Arg-1', [9]], ['Arg-2', [14]]]
+                arguments = [list(range(relation[0]-sentence_start, relation[1]+1-sentence_start)),
+                              list(range(relation[2]-sentence_start, relation[3]+1-sentence_start))]
+                relation_type = relation[4].split('.')[0]
+                flag = False
+                for old_relation in relations:
+                    if relation_type == old_relation['type']:
+                        old_relation['arguments'].append(arguments)
+                        flag = True
+                        break
+                
+                if not flag:
+                    relations += [{'type': relation_type, 'arguments': [arguments]}]
+                
+        
+            yield {'tokens': sentence, 'relations': relations}
 
     def generate_sentence(self, type_format='subtype'):
-        for sentence, events_in_sentence, sentence_start in zip(self.sentences, self.events, self.sentence_start):
+        for _ner, sentence, events_in_sentence, sentence_start in zip(self.ner, self.sentences, self.events, self.sentence_start):
             events = list()
             for event in events_in_sentence:
                 trigger, event_type = event[0]
@@ -36,7 +58,16 @@ class DyIEPP(TaskFormat):
                     end -= sentence_start
                     arguments += [[role, list(range(start, end + 1))]]
 
-                event = {'type': event_type, 'tokens': [trigger], 'arguments': arguments}
+                # add the name_entity_reconganition
+                for argument in arguments:
+                    for ner_pos in _ner:
+                        if((ner_pos[0]-sentence_start) == argument[1][0]):
+                            argument.insert(1, ner_pos[2])
+                    if(len(argument) != 3):
+                        print("Wrong, this argument is not in the ner")
+
+                event = {'type': event_type, 'tokens': [
+                    trigger], 'arguments': arguments}
 
                 events += [event]
             yield {'tokens': sentence, 'events': events}
@@ -78,12 +109,33 @@ class Event(TaskFormat):
     def __init__(self, doc_json):
         self.doc_key = doc_json['doc_id']
         self.sentence = doc_json['tokens']
-        self.entities = {entity['id']: entity for entity in doc_json['entity_mentions']}
+        self.entities = {
+            entity['id']: entity for entity in doc_json['entity_mentions']}
         self.relations = doc_json['relation_mentions']
         self.events = doc_json['event_mentions']
         # self.sentence_start = doc_json['start']
         # self.sentence_end = doc_json['end']
         # self.text = doc_json['text']
+
+    def generate_relations(self, type_format='subtype'):
+        relations = list()
+        for relation in self.relations:
+            arguments = list()
+            relation_type = relation['relation_type']
+            for argument in relation['arguments']:
+                argument_entity = self.entities[argument['entity_id']]
+                arguments += [list(range(argument_entity['start'], argument_entity['end']))]
+            flag = False
+            for old_relation in relations:
+                if relation_type == old_relation['type']:
+                    old_relation['arguments'].append(arguments)
+                    flag = True
+                    break
+            if not flag:
+                relations += [{'type': relation_type, 'arguments': [arguments]}]
+            
+
+        yield {'tokens': self.sentence, 'relations': relations}
 
     def generate_sentence(self, type_format='subtype'):
         events = list()
@@ -92,7 +144,8 @@ class Event(TaskFormat):
             arguments = list()
             for argument in event['arguments']:
                 argument_entity = self.entities[argument['entity_id']]
-                arguments += [[argument['role'], list(range(argument_entity['start'], argument_entity['end']))]]
+                arguments += [[argument['role'], argument_entity['entity_type'],
+                               list(range(argument_entity['start'], argument_entity['end']))]]
 
             suptype, subtype = event['event_type'].split(':')
 

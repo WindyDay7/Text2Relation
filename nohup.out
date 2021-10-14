@@ -1,0 +1,1474 @@
+[W 21:24:39.054 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 21:24:39.055 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 21:24:39.056 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 21:24:39.056 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 21:24:39.056 NotebookApp] http://pesante:9990/
+[I 21:24:39.056 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 21:25:14.039 NotebookApp] 302 GET / (127.0.0.1) 1.170000ms
+[W 21:25:16.874 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210913212438 (127.0.0.1) 20.090000ms referer=http://127.0.0.1:1234/tree?
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[I 21:25:22.064 NotebookApp] Creating new notebook in 
+[W 21:25:37.279 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210913212438 (127.0.0.1) 5.100000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+[W 21:25:37.284 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210913212438 (127.0.0.1) 1.740000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7ff732cc1d90>(<Future finis...7996\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7ff732cc1d90>(<Future finis...7996\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-10' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /api/co...77996\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:331>> is being executed.
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7ff732c71e50>(<Future finis...7996\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7ff732c71e50>(<Future finis...7996\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-6' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /nbexte...77996\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:335>> is being executed.
+[I 21:25:37.924 NotebookApp] Kernel started: aea0aab8-fbc4-4d30-9a90-cabafbdd2528, name: python3
+[W 21:25:42.853 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210913212438 (127.0.0.1) 4.600000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[I 21:27:37.562 NotebookApp] Saving file at /Untitled.ipynb
+[I 21:29:38.180 NotebookApp] Saving file at /Untitled.ipynb
+[I 21:30:24.234 NotebookApp] Starting buffering for aea0aab8-fbc4-4d30-9a90-cabafbdd2528:bdcd5a15c2e84d9b84b32fcb13d509f4
+[W 21:30:24.948 NotebookApp] Notebook Untitled.ipynb is not trusted
+[W 21:30:25.186 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210913212438 (127.0.0.1) 3.770000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+[W 21:30:25.195 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210913212438 (127.0.0.1) 5.730000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+[W 21:30:25.531 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210913212438 (127.0.0.1) 0.790000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+[I 22:48:37.288 NotebookApp] Starting buffering for aea0aab8-fbc4-4d30-9a90-cabafbdd2528:b5e121ae8cd5417390290ee77054b0f8
+[I 22:48:54.671 NotebookApp] Restoring connection for aea0aab8-fbc4-4d30-9a90-cabafbdd2528:b5e121ae8cd5417390290ee77054b0f8
+[I 22:58:26.357 NotebookApp] Saving file at /Untitled.ipynb
+[I 23:00:25.587 NotebookApp] Saving file at /Untitled.ipynb
+[I 23:02:26.266 NotebookApp] Saving file at /Untitled.ipynb
+[I 23:13:10.485 NotebookApp] Saving file at /Untitled.ipynb
+[I 23:14:25.842 NotebookApp] Saving file at /Untitled.ipynb
+[I 23:16:25.602 NotebookApp] Saving file at /Untitled.ipynb
+[I 23:16:59.701 NotebookApp] Shutting down on /api/shutdown request.
+[I 23:16:59.702 NotebookApp] Shutting down 1 kernel
+[I 23:16:59.704 NotebookApp] Kernel shutdown: aea0aab8-fbc4-4d30-9a90-cabafbdd2528
+[I 23:16:59.907 NotebookApp] Shutting down 0 terminals
+[W 09:17:18.881 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 09:17:18.882 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 09:17:18.883 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 09:17:18.883 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 09:17:18.883 NotebookApp] http://pesante:9990/
+[I 09:17:18.883 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 09:17:56.205 NotebookApp] 302 GET / (127.0.0.1) 1.170000ms
+[W 09:17:58.564 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 6.820000ms referer=http://127.0.0.1:1234/tree?
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 09:18:13.265 NotebookApp] Notebook Test.ipynb is not trusted
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f1b65625070>(<Future finis...7996\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f1b65625070>(<Future finis...7996\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-1' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /nbexte...77996\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-34' coro=<MappingKernelManager.start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py:176> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> is being executed.
+[I 09:18:13.946 NotebookApp] Kernel started: edcb6b85-f4b6-4a25-835a-a78f689724e3, name: python3
+[W 09:18:13.949 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210914091718 (127.0.0.1) 1.230000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 09:18:59.993 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210914091718 (127.0.0.1) 0.900000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 09:27:57.905 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:463f0afd8f1f40ee96ab257fac2414c0
+[W 09:27:58.709 NotebookApp] Notebook Test.ipynb is not trusted
+[W 09:27:59.030 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210914091718 (127.0.0.1) 4.690000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 09:27:59.142 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210914091718 (127.0.0.1) 4.600000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 09:27:59.932 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210914091718 (127.0.0.1) 3.680000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 09:38:50.970 NotebookApp] Saving file at /Test.ipynb
+[W 09:38:50.971 NotebookApp] Notebook Test.ipynb is not trusted
+[I 09:38:51.081 NotebookApp] Saving file at /Test.ipynb
+[W 09:38:51.082 NotebookApp] Notebook Test.ipynb is not trusted
+[I 09:40:00.091 NotebookApp] Saving file at /Test.ipynb
+[W 09:40:00.092 NotebookApp] Notebook Test.ipynb is not trusted
+[I 09:42:00.125 NotebookApp] Saving file at /Test.ipynb
+[W 09:42:00.126 NotebookApp] Notebook Test.ipynb is not trusted
+[I 09:59:59.483 NotebookApp] Saving file at /Test.ipynb
+[W 09:59:59.484 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:01:59.385 NotebookApp] Saving file at /Test.ipynb
+[W 10:01:59.386 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:03:59.379 NotebookApp] Saving file at /Test.ipynb
+[W 10:03:59.380 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:05:59.400 NotebookApp] Saving file at /Test.ipynb
+[W 10:05:59.401 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:08:00.213 NotebookApp] Saving file at /Test.ipynb
+[W 10:08:00.214 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:13:59.579 NotebookApp] Saving file at /Test.ipynb
+[W 11:13:59.580 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:16:00.185 NotebookApp] Saving file at /Test.ipynb
+[W 11:16:00.186 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:37:56.310 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[I 15:41:37.247 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[W 15:41:39.652 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 3.580000ms referer=http://127.0.0.1:1234/tree?
+[I 15:51:28.114 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[I 15:51:30.942 NotebookApp] Kernel restarted: edcb6b85-f4b6-4a25-835a-a78f689724e3
+[I 15:51:31.185 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[I 15:51:31.390 NotebookApp] Replaying 3 buffered messages
+[I 15:51:59.130 NotebookApp] Saving file at /Test.ipynb
+[I 15:53:59.798 NotebookApp] Saving file at /Test.ipynb
+[I 16:33:59.339 NotebookApp] Saving file at /Test.ipynb
+[I 18:43:29.267 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[I 20:03:31.316 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[W 21:07:01.317 NotebookApp] WebSocket ping timeout after 119894 ms.
+[I 21:07:06.321 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:9ae7f5357f594c478cf1a0e23a3ed441
+[W 10:24:18.992 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 10:24:18.993 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 10:24:18.994 NotebookApp] The port 9990 is already in use, trying another port.
+[I 10:24:18.994 NotebookApp] The port 9991 is already in use, trying another port.
+[I 10:24:18.994 NotebookApp] The port 9992 is already in use, trying another port.
+[I 10:24:18.994 NotebookApp] The port 9993 is already in use, trying another port.
+[I 10:24:18.995 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 10:24:18.995 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 10:24:18.995 NotebookApp] http://pesante:9994/
+[I 10:24:18.995 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 10:24:47.917 NotebookApp] 302 GET / (127.0.0.1) 1.080000ms
+[W 10:25:55.152 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 4.980000ms referer=http://127.0.0.1:1234/tree?
+[W 10:31:21.414 NotebookApp] Notebook Test.ipynb is not trusted
+[W 10:31:23.682 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210914091718 (127.0.0.1) 3.710000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 10:31:25.480 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210914091718 (127.0.0.1) 4.830000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 10:31:54.385 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210914091718 (127.0.0.1) 1.550000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 10:36:47.252 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:8423fb252bfe46bf87b8b838217080a5
+[I 10:36:49.867 NotebookApp] Kernel restarted: edcb6b85-f4b6-4a25-835a-a78f689724e3
+[I 10:36:50.103 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:8423fb252bfe46bf87b8b838217080a5
+[I 10:36:50.254 NotebookApp] Replaying 3 buffered messages
+[I 10:37:23.915 NotebookApp] Saving file at /Test.ipynb
+[I 10:39:23.824 NotebookApp] Saving file at /Test.ipynb
+[I 10:39:24.553 NotebookApp] Saving file at /Test.ipynb
+[I 10:41:24.319 NotebookApp] Saving file at /Test.ipynb
+[I 10:55:24.060 NotebookApp] Saving file at /Test.ipynb
+[I 10:57:24.159 NotebookApp] Saving file at /Test.ipynb
+[I 10:59:23.836 NotebookApp] Saving file at /Test.ipynb
+[I 11:01:23.821 NotebookApp] Saving file at /Test.ipynb
+[I 11:03:24.211 NotebookApp] Saving file at /Test.ipynb
+[I 11:05:24.518 NotebookApp] Saving file at /Test.ipynb
+[I 11:07:00.715 NotebookApp] Saving file at /Test.ipynb
+[I 11:09:24.315 NotebookApp] Saving file at /Test.ipynb
+[I 11:11:23.865 NotebookApp] Saving file at /Test.ipynb
+[I 11:11:24.949 NotebookApp] Saving file at /Test.ipynb
+[I 11:13:24.319 NotebookApp] Saving file at /Test.ipynb
+[I 11:15:23.854 NotebookApp] Saving file at /Test.ipynb
+[I 11:17:24.315 NotebookApp] Saving file at /Test.ipynb
+[I 11:19:23.873 NotebookApp] Saving file at /Test.ipynb
+[I 11:21:24.167 NotebookApp] Saving file at /Test.ipynb
+[I 11:23:23.827 NotebookApp] Saving file at /Test.ipynb
+[I 11:25:24.294 NotebookApp] Saving file at /Test.ipynb
+[I 12:33:52.220 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:8423fb252bfe46bf87b8b838217080a5
+[I 15:23:23.475 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:8423fb252bfe46bf87b8b838217080a5
+[W 15:23:24.903 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 2.090000ms referer=http://127.0.0.1:1234/tree?
+[I 17:05:28.728 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:8423fb252bfe46bf87b8b838217080a5
+[I 10:06:06.683 NotebookApp] 302 GET / (127.0.0.1) 1.050000ms
+[W 10:06:19.031 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 3.620000ms referer=http://127.0.0.1:1234/tree?
+[W 10:06:45.484 NotebookApp] Notebook Test.ipynb is not trusted
+[W 10:06:45.597 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210914091718 (127.0.0.1) 3.910000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 10:06:45.603 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210914091718 (127.0.0.1) 5.040000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 10:06:52.667 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210914091718 (127.0.0.1) 1.550000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 10:07:07.747 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 10:07:10.356 NotebookApp] Kernel restarted: edcb6b85-f4b6-4a25-835a-a78f689724e3
+[I 10:07:10.569 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 10:07:10.694 NotebookApp] Replaying 3 buffered messages
+[I 10:08:46.842 NotebookApp] Saving file at /Test.ipynb
+[I 10:10:47.219 NotebookApp] Saving file at /Test.ipynb
+[I 10:44:47.487 NotebookApp] Saving file at /Test.ipynb
+[I 10:46:47.461 NotebookApp] Saving file at /Test.ipynb
+[I 10:51:45.783 NotebookApp] Saving file at /Test.ipynb
+[I 10:52:18.680 NotebookApp] Saving file at /Test.ipynb
+[I 10:52:46.961 NotebookApp] Saving file at /Test.ipynb
+[I 10:54:46.880 NotebookApp] Saving file at /Test.ipynb
+[I 10:56:47.277 NotebookApp] Saving file at /Test.ipynb
+[I 10:58:47.381 NotebookApp] Saving file at /Test.ipynb
+[I 12:40:05.510 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 16:23:58.165 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[W 16:24:00.823 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 3.630000ms referer=http://127.0.0.1:1234/tree?
+[I 18:26:12.577 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 19:08:25.112 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 21:24:50.566 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 21:39:50.848 NotebookApp] Restoring connection for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 23:14:58.064 NotebookApp] Starting buffering for edcb6b85-f4b6-4a25-835a-a78f689724e3:bb67359e6af641a293dda0479c9ce7c4
+[I 23:15:28.333 NotebookApp] 302 GET / (127.0.0.1) 1.050000ms
+[W 23:15:36.081 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 5.930000ms referer=http://127.0.0.1:1234/tree?
+[I 20:17:57.855 NotebookApp] 302 GET / (127.0.0.1) 1.030000ms
+[I 20:17:58.021 NotebookApp] 302 GET /tree? (127.0.0.1) 1.380000ms
+[I 20:18:06.395 NotebookApp] 302 POST /login?next=%2Ftree%3F (127.0.0.1) 17.600000ms
+[W 20:18:20.600 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 3.620000ms referer=http://127.0.0.1:1234/tree?
+[I 20:19:04.263 NotebookApp] 302 POST /login?next=%2F (127.0.0.1) 15.410000ms
+[I 20:19:04.426 NotebookApp] 302 GET / (127.0.0.1) 0.990000ms
+[W 20:19:05.221 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210914091718 (127.0.0.1) 3.620000ms referer=http://127.0.0.1:1234/tree?
+[I 20:19:06.632 NotebookApp] Shutting down on /api/shutdown request.
+[I 20:19:06.633 NotebookApp] Shutting down 1 kernel
+[I 20:19:06.636 NotebookApp] Kernel shutdown: edcb6b85-f4b6-4a25-835a-a78f689724e3
+[I 20:19:09.239 NotebookApp] Shutting down 0 terminals
+[W 11:54:46.798 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 11:54:46.799 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 11:54:46.800 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 11:54:46.800 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 11:54:46.800 NotebookApp] http://pesante:9990/
+[I 11:54:46.800 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 11:55:18.482 NotebookApp] 302 GET / (127.0.0.1) 1.190000ms
+[W 11:55:20.455 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210920115446 (127.0.0.1) 6.470000ms referer=http://127.0.0.1:1234/tree?
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 11:55:26.717 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:55:26.734 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210920115446 (127.0.0.1) 1.910000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:55:26.734 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210920115446 (127.0.0.1) 2.300000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+ERROR:asyncio:Exception in callback <TaskStepMethWrapper object at 0x7f3d50011400>()
+handle: <Handle <TaskStepMethWrapper object at 0x7f3d50011400>()>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-12' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:840> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-48' coro=<MappingKernelManager.start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py:176> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> is being executed.
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f3d500119d0>(<Future finis...029"\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f3d500119d0>(<Future finis...029"\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-11' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /kernel...b029"\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:336>> is being executed.
+[I 11:55:27.977 NotebookApp] Kernel started: b470f6a5-fecf-4136-8cbb-b26880c22232, name: python3
+[W 11:55:28.365 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210920115446 (127.0.0.1) 3.970000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[I 11:57:28.558 NotebookApp] Saving file at /Test.ipynb
+[W 11:57:28.560 NotebookApp] Notebook Test.ipynb is not trusted
+[W 13:47:58.457 NotebookApp] WebSocket ping timeout after 119895 ms.
+[I 13:48:03.461 NotebookApp] Starting buffering for b470f6a5-fecf-4136-8cbb-b26880c22232:bda466ed271c4eaa95215f88283a0ceb
+[W 14:48:16.427 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:48:16.898 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210920115446 (127.0.0.1) 4.380000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:48:16.901 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210920115446 (127.0.0.1) 1.490000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:48:18.543 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210920115446 (127.0.0.1) 0.820000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 14:50:18.780 NotebookApp] Saving file at /Test.ipynb
+[W 14:50:18.783 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:51:43.964 NotebookApp] Starting buffering for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 14:51:44.081 NotebookApp] Kernel restarted: b470f6a5-fecf-4136-8cbb-b26880c22232
+[I 14:51:44.476 NotebookApp] Restoring connection for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 14:51:44.479 NotebookApp] Replaying 3 buffered messages
+[I 14:52:18.725 NotebookApp] Saving file at /Test.ipynb
+[W 14:56:14.476 NotebookApp] WebSocket ping timeout after 119902 ms.
+[I 14:56:19.480 NotebookApp] Starting buffering for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 15:58:03.197 NotebookApp] Restoring connection for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 15:58:06.095 NotebookApp] Starting buffering for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 15:58:09.230 NotebookApp] Kernel restarted: b470f6a5-fecf-4136-8cbb-b26880c22232
+[I 15:58:09.470 NotebookApp] Restoring connection for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 15:58:09.655 NotebookApp] Replaying 3 buffered messages
+[I 15:58:18.759 NotebookApp] Saving file at /Test.ipynb
+[I 16:00:18.756 NotebookApp] Saving file at /Test.ipynb
+[I 16:02:18.745 NotebookApp] Saving file at /Test.ipynb
+[I 16:04:18.332 NotebookApp] Saving file at /Test.ipynb
+[I 16:06:19.029 NotebookApp] Saving file at /Test.ipynb
+[I 16:08:18.915 NotebookApp] Saving file at /Test.ipynb
+[I 16:10:18.749 NotebookApp] Saving file at /Test.ipynb
+[I 16:18:18.990 NotebookApp] Saving file at /Test.ipynb
+[I 16:20:18.762 NotebookApp] Saving file at /Test.ipynb
+[I 16:22:19.018 NotebookApp] Saving file at /Test.ipynb
+[I 16:40:18.652 NotebookApp] Saving file at /Test.ipynb
+[I 16:41:33.240 NotebookApp] Saving file at /Test.ipynb
+[I 16:42:18.438 NotebookApp] Saving file at /Test.ipynb
+[I 16:44:18.857 NotebookApp] Saving file at /Test.ipynb
+[I 16:46:18.453 NotebookApp] Saving file at /Test.ipynb
+[I 16:48:18.618 NotebookApp] Saving file at /Test.ipynb
+[I 16:50:18.757 NotebookApp] Saving file at /Test.ipynb
+[I 16:52:18.529 NotebookApp] Saving file at /Test.ipynb
+[I 17:00:19.125 NotebookApp] Saving file at /Test.ipynb
+[I 17:02:18.476 NotebookApp] Saving file at /Test.ipynb
+[I 17:04:18.439 NotebookApp] Saving file at /Test.ipynb
+[I 17:06:10.421 NotebookApp] Saving file at /Test.ipynb
+[I 17:06:18.436 NotebookApp] Saving file at /Test.ipynb
+[I 17:06:51.508 NotebookApp] Saving file at /Test.ipynb
+[I 17:06:52.565 NotebookApp] Saving file at /Test.ipynb
+[I 17:08:18.434 NotebookApp] Saving file at /Test.ipynb
+[I 17:10:18.433 NotebookApp] Saving file at /Test.ipynb
+[I 17:10:47.643 NotebookApp] Saving file at /Test.ipynb
+[I 17:11:58.173 NotebookApp] Saving file at /Test.ipynb
+[I 17:11:59.361 NotebookApp] Starting buffering for b470f6a5-fecf-4136-8cbb-b26880c22232:ee8c3d27ab7240d989a32f7b48035be8
+[I 17:12:01.084 NotebookApp] Kernel shutdown: b470f6a5-fecf-4136-8cbb-b26880c22232
+[W 17:12:07.978 NotebookApp] Notebook Test.ipynb is not trusted
+[W 17:12:10.369 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210920115446 (127.0.0.1) 3.930000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 17:12:10.372 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210920115446 (127.0.0.1) 0.980000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 17:12:11.499 NotebookApp] Kernel started: 5161108a-8be2-40a0-8e4c-81c70b63cdfb, name: python3
+[W 17:12:12.006 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210920115446 (127.0.0.1) 4.870000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 17:14:11.797 NotebookApp] Saving file at /Test.ipynb
+[W 17:14:11.798 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:26:39.737 NotebookApp] Kernel interrupted: 5161108a-8be2-40a0-8e4c-81c70b63cdfb
+[I 17:26:39.740 NotebookApp] Kernel interrupted: 5161108a-8be2-40a0-8e4c-81c70b63cdfb
+[I 17:26:39.741 NotebookApp] Kernel interrupted: 5161108a-8be2-40a0-8e4c-81c70b63cdfb
+[I 17:26:41.301 NotebookApp] Saving file at /Test.ipynb
+[W 17:26:41.301 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:31:42.212 NotebookApp] Saving file at /Test.ipynb
+[W 17:31:42.212 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:56:42.061 NotebookApp] Saving file at /Test.ipynb
+[W 17:56:42.061 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:01:41.873 NotebookApp] Saving file at /Test.ipynb
+[W 18:01:41.874 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:06:41.997 NotebookApp] Saving file at /Test.ipynb
+[W 18:06:41.998 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:46:42.247 NotebookApp] Saving file at /Test.ipynb
+[W 22:46:42.247 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:24:28.150 NotebookApp] Shutting down on /api/shutdown request.
+[I 23:24:28.152 NotebookApp] Shutting down 1 kernel
+[I 23:24:28.153 NotebookApp] Kernel shutdown: 5161108a-8be2-40a0-8e4c-81c70b63cdfb
+[I 23:24:28.423 NotebookApp] Starting buffering for 5161108a-8be2-40a0-8e4c-81c70b63cdfb:d0fd00e6a50d491b813193f765ca8cc5
+[I 23:24:28.428 NotebookApp] Kernel shutdown: 5161108a-8be2-40a0-8e4c-81c70b63cdfb
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/bin/jupyter-notebook", line 8, in <module>
+    sys.exit(main())
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_core/application.py", line 254, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/traitlets/config/application.py", line 846, in launch_instance
+    app.start()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2361, in start
+    self.cleanup_kernels()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2140, in cleanup_kernels
+    run_sync(self.kernel_manager.shutdown_all())
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/utils.py", line 21, in wrapped
+    return loop.run_until_complete(coro(*args, **kwargs))
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/nest_asyncio.py", line 70, in run_until_complete
+    return f.result()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/tasks.py", line 280, in __step
+    result = coro.send(None)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 257, in _async_shutdown_all
+    futs = [ensure_async(self.shutdown_kernel(kid, now=now)) for kid in kids]
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 257, in <listcomp>
+    futs = [ensure_async(self.shutdown_kernel(kid, now=now)) for kid in kids]
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+    self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/utils.py", line 21, in wrapped
+    return loop.run_until_complete(coro(*args, **kwargs))
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/nest_asyncio.py", line 70, in run_until_complete
+    return f.result()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/tasks.py", line 280, in __step
+    result = coro.send(None)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 217, in _async_shutdown_kernel
+    self.remove_kernel(kernel_id)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 247, in remove_kernel
+    return self._kernels.pop(kernel_id)
+KeyError: '5161108a-8be2-40a0-8e4c-81c70b63cdfb'
+[W 11:20:55.618 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 11:20:55.620 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 11:20:55.621 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 11:20:55.621 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 11:20:55.621 NotebookApp] http://pesante:9990/
+[I 11:20:55.621 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 11:21:02.271 NotebookApp] 302 GET / (127.0.0.1) 0.510000ms
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 11:21:12.022 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210921112055 (127.0.0.1) 4.890000ms referer=http://127.0.0.1:1234/tree?
+[W 11:21:58.334 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:21:58.969 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210921112055 (127.0.0.1) 3.660000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7ff31636c0a0>(<Future finis...029"\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7ff31636c0a0>(<Future finis...029"\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-6' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /api/co...b029"\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:336>> is being executed.
+[I 11:22:01.473 NotebookApp] Kernel started: d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f, name: python3
+[W 11:22:01.489 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210921112055 (127.0.0.1) 0.800000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 11:22:07.449 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210921112055 (127.0.0.1) 3.780000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 11:24:02.264 NotebookApp] Saving file at /Test.ipynb
+[W 11:24:02.264 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:26:01.716 NotebookApp] Saving file at /Test.ipynb
+[W 11:26:01.716 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:27:00.678 NotebookApp] Saving file at /Test.ipynb
+[W 11:27:00.679 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:28:01.773 NotebookApp] Saving file at /Test.ipynb
+[W 11:28:01.773 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:30:02.148 NotebookApp] Saving file at /Test.ipynb
+[W 11:30:02.148 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:31:15.762 NotebookApp] IOPub data rate exceeded.
+    The notebook server will temporarily stop sending output
+    to the client in order to avoid crashing it.
+    To change this limit, set the config variable
+    `--NotebookApp.iopub_data_rate_limit`.
+    
+    Current values:
+    NotebookApp.iopub_data_rate_limit=1000000.0 (bytes/sec)
+    NotebookApp.rate_limit_window=3.0 (secs)
+    
+[W 11:31:36.508 NotebookApp] IOPub data rate exceeded.
+    The notebook server will temporarily stop sending output
+    to the client in order to avoid crashing it.
+    To change this limit, set the config variable
+    `--NotebookApp.iopub_data_rate_limit`.
+    
+    Current values:
+    NotebookApp.iopub_data_rate_limit=1000000.0 (bytes/sec)
+    NotebookApp.rate_limit_window=3.0 (secs)
+    
+[I 11:32:02.169 NotebookApp] Saving file at /Test.ipynb
+[W 11:32:02.170 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:32:20.119 NotebookApp] IOPub data rate exceeded.
+    The notebook server will temporarily stop sending output
+    to the client in order to avoid crashing it.
+    To change this limit, set the config variable
+    `--NotebookApp.iopub_data_rate_limit`.
+    
+    Current values:
+    NotebookApp.iopub_data_rate_limit=1000000.0 (bytes/sec)
+    NotebookApp.rate_limit_window=3.0 (secs)
+    
+[I 11:34:02.154 NotebookApp] Saving file at /Test.ipynb
+[W 11:34:02.154 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:48:52.627 NotebookApp] Starting buffering for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 14:46:34.578 NotebookApp] Restoring connection for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 17:00:02.352 NotebookApp] Saving file at /Test.ipynb
+[W 17:00:02.354 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:02:01.912 NotebookApp] Saving file at /Test.ipynb
+[W 17:02:01.912 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:04:02.295 NotebookApp] Saving file at /Test.ipynb
+[W 17:04:02.296 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:06:01.884 NotebookApp] Saving file at /Test.ipynb
+[W 17:06:01.884 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:08:02.580 NotebookApp] Saving file at /Test.ipynb
+[W 17:08:02.580 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:14:02.635 NotebookApp] Saving file at /Test.ipynb
+[W 17:14:02.635 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:18:02.002 NotebookApp] Saving file at /Test.ipynb
+[W 17:18:02.002 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:20:02.494 NotebookApp] Saving file at /Test.ipynb
+[W 17:20:02.494 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:22:02.269 NotebookApp] Saving file at /Test.ipynb
+[W 17:22:02.270 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:26:02.738 NotebookApp] Saving file at /Test.ipynb
+[W 17:26:02.738 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:32:02.726 NotebookApp] Saving file at /Test.ipynb
+[W 17:32:02.726 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:49:47.029 NotebookApp] Starting buffering for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 17:50:02.304 NotebookApp] Restoring connection for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 17:50:13.971 NotebookApp] Starting buffering for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 17:50:26.775 NotebookApp] Restoring connection for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 17:52:03.402 NotebookApp] Saving file at /Test.ipynb
+[W 17:52:03.403 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:22:32.081 NotebookApp] Starting buffering for d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f:445067e7fee94dd291724c196741c8f5
+[I 18:22:47.282 NotebookApp] 302 GET / (127.0.0.1) 0.240000ms
+[W 18:23:05.198 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210921112055 (127.0.0.1) 0.660000ms referer=http://127.0.0.1:1234/tree?
+[I 18:23:07.593 NotebookApp] Shutting down on /api/shutdown request.
+[I 18:23:07.594 NotebookApp] Shutting down 1 kernel
+[I 18:23:07.594 NotebookApp] Kernel shutdown: d53f15c0-e66a-40e2-99e1-2aaa58fd2b5f
+[I 18:23:10.196 NotebookApp] Shutting down 0 terminals
+[W 10:33:55.773 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 10:33:55.774 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 10:33:55.776 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 10:33:55.776 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 10:33:55.776 NotebookApp] http://pesante:9990/
+[I 10:33:55.776 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 10:34:32.843 NotebookApp] 302 GET / (127.0.0.1) 1.150000ms
+[I 10:34:33.099 NotebookApp] 302 GET /tree? (127.0.0.1) 1.400000ms
+[I 10:35:04.515 NotebookApp] 302 POST /login?next=%2Ftree%3F (127.0.0.1) 23.930000ms
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 10:35:28.681 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210924103355 (127.0.0.1) 19.870000ms referer=http://127.0.0.1:1234/tree?
+[W 10:36:08.884 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210924103355 (127.0.0.1) 4.710000ms referer=http://127.0.0.1:1234/tree?
+[W 10:37:03.082 NotebookApp] Notebook Test.ipynb is not trusted
+[W 10:37:04.276 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210924103355 (127.0.0.1) 6.680000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 10:37:07.786 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210924103355 (127.0.0.1) 0.900000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 10:37:09.904 NotebookApp] Kernel started: 272df982-282e-4c58-8d40-10a0aecfca4f, name: python3
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 10:37:21.820 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210924103355 (127.0.0.1) 2.460000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 10:51:09.223 NotebookApp] Saving file at /Test.ipynb
+[W 10:51:09.224 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:53:00.699 NotebookApp] Saving file at /Test.ipynb
+[W 10:53:00.699 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:53:01.225 NotebookApp] Saving file at /Test.ipynb
+[W 10:53:01.225 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:53:08.922 NotebookApp] Saving file at /Test.ipynb
+[W 10:53:08.923 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:53:24.160 NotebookApp] Saving file at /Test.ipynb
+[W 10:53:24.160 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:53:24.902 NotebookApp] Saving file at /Test.ipynb
+[W 10:53:24.902 NotebookApp] Notebook Test.ipynb is not trusted
+[I 10:57:08.942 NotebookApp] Saving file at /Test.ipynb
+[W 10:57:08.942 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:01:08.946 NotebookApp] Saving file at /Test.ipynb
+[W 11:01:08.946 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:03:08.942 NotebookApp] Saving file at /Test.ipynb
+[W 11:03:08.942 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:05:08.957 NotebookApp] Saving file at /Test.ipynb
+[W 11:05:08.958 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:07:08.966 NotebookApp] Saving file at /Test.ipynb
+[W 11:07:08.966 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:09:08.959 NotebookApp] Saving file at /Test.ipynb
+[W 11:09:08.959 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:11:09.914 NotebookApp] Saving file at /Test.ipynb
+[W 11:11:09.914 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:19:13.088 NotebookApp] Starting buffering for 272df982-282e-4c58-8d40-10a0aecfca4f:b827bfbcebc74d8c9b65eca23580b793
+[W 11:19:13.903 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:19:13.965 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210924103355 (127.0.0.1) 0.980000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:19:24.398 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210924103355 (127.0.0.1) 2.640000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:19:27.999 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210924103355 (127.0.0.1) 6.790000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 11:21:25.718 NotebookApp] Saving file at /Test.ipynb
+[W 11:21:25.720 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:23:25.687 NotebookApp] Saving file at /Test.ipynb
+[W 11:23:25.687 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:25:25.955 NotebookApp] Saving file at /Test.ipynb
+[W 11:25:25.957 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:30:06.343 NotebookApp] Starting buffering for 272df982-282e-4c58-8d40-10a0aecfca4f:0820e1c9a64d491a86f3289b0d00a5d6
+[I 11:30:09.634 NotebookApp] Kernel shutdown: 272df982-282e-4c58-8d40-10a0aecfca4f
+[W 11:30:22.674 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:30:24.844 NotebookApp] Kernel started: c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133, name: python3
+[W 11:30:24.862 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210924103355 (127.0.0.1) 1.310000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:30:26.528 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210924103355 (127.0.0.1) 4.920000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:30:30.017 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210924103355 (127.0.0.1) 1.270000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 11:32:25.002 NotebookApp] Saving file at /Test.ipynb
+[W 11:32:25.004 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:36:26.007 NotebookApp] Saving file at /Test.ipynb
+[W 11:36:26.008 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:38:25.878 NotebookApp] Saving file at /Test.ipynb
+[W 11:38:25.880 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:41:40.435 NotebookApp] Saving file at /Test.ipynb
+[W 11:41:40.436 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:41:41.149 NotebookApp] Saving file at /Test.ipynb
+[W 11:41:41.151 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:42:24.997 NotebookApp] Saving file at /Test.ipynb
+[W 11:42:24.999 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:44:24.994 NotebookApp] Saving file at /Test.ipynb
+[W 11:44:24.996 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:46:24.995 NotebookApp] Saving file at /Test.ipynb
+[W 11:46:24.997 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:48:04.104 NotebookApp] Saving file at /Test.ipynb
+[W 11:48:04.104 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:52:25.895 NotebookApp] Saving file at /Test.ipynb
+[W 11:52:25.896 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:54:25.003 NotebookApp] Saving file at /Test.ipynb
+[W 11:54:25.005 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:56:21.603 NotebookApp] Saving file at /Test.ipynb
+[W 11:56:21.605 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:56:24.974 NotebookApp] Saving file at /Test.ipynb
+[W 11:56:24.976 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:06:25.215 NotebookApp] Saving file at /Test.ipynb
+[W 12:06:25.216 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:08:25.024 NotebookApp] Saving file at /Test.ipynb
+[W 12:08:25.026 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:12:25.342 NotebookApp] Saving file at /Test.ipynb
+[W 12:12:25.344 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:21:13.077 NotebookApp] Saving file at /Test.ipynb
+[W 12:21:13.078 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:38:17.940 NotebookApp] Starting buffering for c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133:4b3acf9145584dd8956ea6ed03c791a5
+[I 14:08:20.901 NotebookApp] Restoring connection for c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133:4b3acf9145584dd8956ea6ed03c791a5
+[I 14:39:11.198 NotebookApp] Saving file at /Test.ipynb
+[W 14:39:11.200 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:39:11.317 NotebookApp] Saving file at /Test.ipynb
+[W 14:39:11.319 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:40:24.387 NotebookApp] Saving file at /Test.ipynb
+[W 14:40:24.389 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:42:25.309 NotebookApp] Saving file at /Test.ipynb
+[W 14:42:25.310 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:44:24.416 NotebookApp] Saving file at /Test.ipynb
+[W 14:44:24.418 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:52:25.798 NotebookApp] Saving file at /Test.ipynb
+[W 14:52:25.800 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:59:20.904 NotebookApp] WebSocket ping timeout after 119888 ms.
+[I 14:59:25.908 NotebookApp] Starting buffering for c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133:4b3acf9145584dd8956ea6ed03c791a5
+[I 20:04:53.727 NotebookApp] 302 GET / (127.0.0.1) 1.100000ms
+[W 20:04:54.477 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210924103355 (127.0.0.1) 4.900000ms referer=http://127.0.0.1:1234/tree?
+[W 20:04:58.855 NotebookApp] Notebook Test.ipynb is not trusted
+[W 20:04:58.943 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210924103355 (127.0.0.1) 5.770000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 20:04:58.974 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210924103355 (127.0.0.1) 1.130000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 20:05:01.432 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210924103355 (127.0.0.1) 5.100000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 20:11:50.712 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210924103355 (127.0.0.1) 5.780000ms referer=http://127.0.0.1:1234/tree?
+[I 20:15:01.380 NotebookApp] Saving file at /Test.ipynb
+[W 20:15:01.381 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:17:01.151 NotebookApp] Saving file at /Test.ipynb
+[W 20:17:01.153 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:53:01.347 NotebookApp] Saving file at /Test.ipynb
+[W 20:53:01.349 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:53:01.450 NotebookApp] Saving file at /Test.ipynb
+[W 20:53:01.451 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:53:02.873 NotebookApp] Saving file at /Test.ipynb
+[W 20:53:02.874 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:53:02.901 NotebookApp] Saving file at /Test.ipynb
+[W 20:53:02.901 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:53:40.612 NotebookApp] Saving file at /Test.ipynb
+[W 20:53:40.614 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:55:01.101 NotebookApp] Saving file at /Test.ipynb
+[W 20:55:01.102 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:57:01.101 NotebookApp] Saving file at /Test.ipynb
+[W 20:57:01.102 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:23:56.314 NotebookApp] Starting buffering for c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133:3d97fd9ecd054a8dadc17e1c35b34c9b
+[I 11:17:11.340 NotebookApp] 302 GET / (127.0.0.1) 1.030000ms
+[W 11:17:12.569 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210924103355 (127.0.0.1) 4.670000ms referer=http://127.0.0.1:1234/tree?
+[W 11:17:19.305 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:17:19.878 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210924103355 (127.0.0.1) 4.870000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:17:20.627 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210924103355 (127.0.0.1) 4.770000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:17:26.766 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210924103355 (127.0.0.1) 4.670000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 11:20:29.968 NotebookApp] Starting buffering for c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133:aaa51e68fbab4c7d8366e07d89b45d8c
+[I 11:20:31.052 NotebookApp] Shutting down on /api/shutdown request.
+[I 11:20:31.055 NotebookApp] Shutting down 1 kernel
+[I 11:20:31.057 NotebookApp] Kernel shutdown: c7f57bb3-9e32-4e2b-a0aa-2b6f94e74133
+[I 11:20:33.662 NotebookApp] Shutting down 0 terminals
+[W 11:20:46.241 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 11:20:46.242 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 11:20:46.244 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 11:20:46.244 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 11:20:46.244 NotebookApp] http://pesante:9990/
+[I 11:20:46.244 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 11:20:54.861 NotebookApp] 302 GET / (127.0.0.1) 1.140000ms
+[W 11:21:02.490 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 19.800000ms referer=http://127.0.0.1:1234/tree?
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 11:21:14.025 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:21:15.189 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 1.050000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:21:18.732 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 4.750000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f11a7dcff10>(<Future finis...1493\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f11a7dcff10>(<Future finis...1493\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-1' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /api/co...81493\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-1' coro=<MultiKernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py:186>> is being executed.
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f11a7b9da00>(<Future finis...1493\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f11a7b9da00>(<Future finis...1493\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-10' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /nbexte...81493\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:331>> is being executed.
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f11a7d99910>(<Future finis... GMT\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f11a7d99910>(<Future finis... GMT\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-2' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /static...4 GMT\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:336>> is being executed.
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f11a7ccb160>(<Future finis... GMT\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f11a7ccb160>(<Future finis... GMT\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-12' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /static...4 GMT\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:336>> is being executed.
+[I 11:21:53.005 NotebookApp] Kernel started: e6ff3b9d-e3b5-42ea-baef-3fe420513753, name: python3
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[I 11:21:56.555 NotebookApp] 302 GET / (127.0.0.1) 1.030000ms
+[I 11:22:10.105 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:1024ddfdb80b444698b64c4d7714dad3
+[I 11:23:14.797 NotebookApp] 302 GET / (127.0.0.1) 0.990000ms
+[I 11:23:21.678 NotebookApp] 302 GET / (127.0.0.1) 1.000000ms
+[W 11:23:59.936 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 3.790000ms referer=http://127.0.0.1:1234/tree?
+[W 11:26:10.296 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:26:13.810 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 3.770000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:26:14.701 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 3.860000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:26:42.394 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 0.820000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 11:29:34.858 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:6fd6bfcd73904d09878e37b8110e3fb3
+[I 11:30:47.306 NotebookApp] 302 GET / (127.0.0.1) 1.110000ms
+[W 11:30:49.528 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 3.690000ms referer=http://127.0.0.1:1234/tree?
+[W 11:30:55.995 NotebookApp] Notebook Test.ipynb is not trusted
+[W 11:30:57.016 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 1.800000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:30:57.017 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 1.670000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 11:30:59.388 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 3.630000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 11:32:48.366 NotebookApp] Saving file at /Test.ipynb
+[W 11:32:48.367 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:34:59.397 NotebookApp] Saving file at /Test.ipynb
+[W 11:34:59.399 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:36:59.558 NotebookApp] Saving file at /Test.ipynb
+[W 11:36:59.560 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:37:16.072 NotebookApp] Saving file at /Test.ipynb
+[W 11:37:16.073 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:37:16.711 NotebookApp] Saving file at /Test.ipynb
+[W 11:37:16.712 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:38:59.504 NotebookApp] Saving file at /Test.ipynb
+[W 11:38:59.505 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:41:00.100 NotebookApp] Saving file at /Test.ipynb
+[W 11:41:00.101 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:41:18.340 NotebookApp] Saving file at /Test.ipynb
+[W 11:41:18.340 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:41:19.142 NotebookApp] Saving file at /Test.ipynb
+[W 11:41:19.142 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:42:59.420 NotebookApp] Saving file at /Test.ipynb
+[W 11:42:59.422 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:44:59.565 NotebookApp] Saving file at /Test.ipynb
+[W 11:44:59.567 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:46:57.380 NotebookApp] Saving file at /Test.ipynb
+[W 11:46:57.382 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:46:57.912 NotebookApp] Saving file at /Test.ipynb
+[W 11:46:57.914 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:47:10.509 NotebookApp] Saving file at /Test.ipynb
+[W 11:47:10.510 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:47:11.109 NotebookApp] Saving file at /Test.ipynb
+[W 11:47:11.111 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:48:59.387 NotebookApp] Saving file at /Test.ipynb
+[W 11:48:59.388 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:50:59.411 NotebookApp] Saving file at /Test.ipynb
+[W 11:50:59.413 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:52:59.885 NotebookApp] Saving file at /Test.ipynb
+[W 11:52:59.887 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:54:59.630 NotebookApp] Saving file at /Test.ipynb
+[W 11:54:59.632 NotebookApp] Notebook Test.ipynb is not trusted
+[I 11:56:59.621 NotebookApp] Saving file at /Test.ipynb
+[W 11:56:59.623 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:39:55.984 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:88ef995dffad49bd8ecada6d7f7822d8
+[I 13:41:56.354 NotebookApp] Restoring connection for e6ff3b9d-e3b5-42ea-baef-3fe420513753:88ef995dffad49bd8ecada6d7f7822d8
+[I 13:42:09.391 NotebookApp] Saving file at /Test.ipynb
+[W 13:42:09.393 NotebookApp] Notebook Test.ipynb is not trusted
+[I 13:42:15.404 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:88ef995dffad49bd8ecada6d7f7822d8
+[I 13:42:25.005 NotebookApp] 302 GET / (127.0.0.1) 0.250000ms
+[W 13:42:26.746 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 5.340000ms referer=http://127.0.0.1:1234/tree?
+[W 13:42:30.901 NotebookApp] Notebook Test.ipynb is not trusted
+[W 13:42:32.039 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 2.560000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 13:42:32.123 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 4.780000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 13:42:32.861 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 1.050000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 14:19:12.152 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:be93461f44474753851edb3f7e7ec8bb
+[W 14:19:17.445 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:19:19.339 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 4.860000ms referer=http://127.0.0.1:1234/tree?
+[W 14:19:20.745 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 4.600000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:19:20.747 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 1.220000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:19:31.544 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 4.920000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:19:38.841 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 4.920000ms referer=http://127.0.0.1:1234/tree?
+[I 14:19:57.655 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:7232453ebd4c45ae8eb516be32c6d836
+[W 14:20:01.076 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:20:02.595 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 1.000000ms referer=http://127.0.0.1:1234/tree?
+[W 14:20:07.534 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 4.840000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:20:07.546 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 1.050000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 14:34:03.398 NotebookApp] Saving file at /Test.ipynb
+[W 14:34:03.401 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:50:02.987 NotebookApp] Saving file at /Test.ipynb
+[W 14:50:02.989 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:52:02.855 NotebookApp] Saving file at /Test.ipynb
+[W 14:52:02.857 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:52:23.293 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:5e064630df494b9985a4a8b84a8be9c5
+[I 15:39:32.665 NotebookApp] 302 GET / (127.0.0.1) 1.010000ms
+[W 15:39:33.949 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 4.870000ms referer=http://127.0.0.1:1234/tree?
+[W 15:39:43.330 NotebookApp] Notebook Test.ipynb is not trusted
+[W 15:39:43.414 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 1.000000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 15:39:43.416 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 0.910000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 15:39:47.365 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 5.750000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 15:47:45.740 NotebookApp] Saving file at /Test.ipynb
+[W 15:47:45.741 NotebookApp] Notebook Test.ipynb is not trusted
+[I 15:51:45.748 NotebookApp] Saving file at /Test.ipynb
+[W 15:51:45.750 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:25:45.800 NotebookApp] Saving file at /Test.ipynb
+[W 16:25:45.802 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:27:45.762 NotebookApp] Saving file at /Test.ipynb
+[W 16:27:45.763 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:29:45.921 NotebookApp] Saving file at /Test.ipynb
+[W 16:29:45.923 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:33:45.756 NotebookApp] Saving file at /Test.ipynb
+[W 16:33:45.758 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:35:45.723 NotebookApp] Saving file at /Test.ipynb
+[W 16:35:45.725 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:36:10.507 NotebookApp] Saving file at /Test.ipynb
+[W 16:36:10.509 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:36:11.205 NotebookApp] Saving file at /Test.ipynb
+[W 16:36:11.205 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:37:46.102 NotebookApp] Saving file at /Test.ipynb
+[W 16:37:46.104 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:43:45.841 NotebookApp] Saving file at /Test.ipynb
+[W 16:43:45.842 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:47:45.785 NotebookApp] Saving file at /Test.ipynb
+[W 16:47:45.787 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:49:45.976 NotebookApp] Saving file at /Test.ipynb
+[W 16:49:45.978 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:57:45.901 NotebookApp] Saving file at /Test.ipynb
+[W 16:57:45.903 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:59:45.793 NotebookApp] Saving file at /Test.ipynb
+[W 16:59:45.794 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:01:45.804 NotebookApp] Saving file at /Test.ipynb
+[W 17:01:45.806 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:03:45.805 NotebookApp] Saving file at /Test.ipynb
+[W 17:03:45.807 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:07:45.984 NotebookApp] Saving file at /Test.ipynb
+[W 17:07:45.985 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:09:45.864 NotebookApp] Saving file at /Test.ipynb
+[W 17:09:45.866 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:43:46.383 NotebookApp] Saving file at /Test.ipynb
+[W 17:43:46.385 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:44:05.417 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:2c93cf9683ca44f5bea73556993e9918
+[I 20:20:00.673 NotebookApp] Restoring connection for e6ff3b9d-e3b5-42ea-baef-3fe420513753:2c93cf9683ca44f5bea73556993e9918
+[I 21:26:34.257 NotebookApp] Saving file at /Test.ipynb
+[W 21:26:34.259 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:26:34.632 NotebookApp] Saving file at /Test.ipynb
+[W 21:26:34.634 NotebookApp] Notebook Test.ipynb is not trusted
+[W 21:33:00.675 NotebookApp] WebSocket ping timeout after 119903 ms.
+[I 21:33:05.678 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:2c93cf9683ca44f5bea73556993e9918
+[I 22:10:02.192 NotebookApp] Restoring connection for e6ff3b9d-e3b5-42ea-baef-3fe420513753:2c93cf9683ca44f5bea73556993e9918
+[W 22:10:06.106 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 4.870000ms referer=http://127.0.0.1:1234/tree?
+[W 22:10:08.519 NotebookApp] Notebook Test.ipynb is not trusted
+[W 22:10:08.531 NotebookApp] Trusting notebook /Test.ipynb
+[I 22:10:09.042 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:2c93cf9683ca44f5bea73556993e9918
+[W 22:10:09.994 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 6.470000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:10:09.999 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 9.640000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:10:11.147 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 4.980000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 22:20:11.180 NotebookApp] Saving file at /Test.ipynb
+[I 22:22:11.274 NotebookApp] Saving file at /Test.ipynb
+[I 22:24:11.265 NotebookApp] Saving file at /Test.ipynb
+[I 22:38:11.464 NotebookApp] Saving file at /Test.ipynb
+[W 22:39:27.722 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210925112046 (127.0.0.1) 1.080000ms referer=http://127.0.0.1:1234/tree?
+[I 22:39:31.185 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:3b1f1d1951ba47ac8b1eb2844f1a0d8f
+[W 22:39:32.713 NotebookApp] Notebook Test.ipynb is not trusted
+[W 22:39:33.856 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210925112046 (127.0.0.1) 4.880000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:39:35.061 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210925112046 (127.0.0.1) 4.960000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:39:39.931 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210925112046 (127.0.0.1) 4.780000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 22:41:34.747 NotebookApp] Saving file at /Test.ipynb
+[W 22:41:34.750 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:34.728 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:34.730 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:48:07.487 NotebookApp] Saving file at /Test.ipynb
+[W 22:48:07.489 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:49:34.716 NotebookApp] Saving file at /Test.ipynb
+[W 22:49:34.718 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:51:34.701 NotebookApp] Saving file at /Test.ipynb
+[W 22:51:34.702 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:53:34.726 NotebookApp] Saving file at /Test.ipynb
+[W 22:53:34.728 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:55:34.787 NotebookApp] Saving file at /Test.ipynb
+[W 22:55:34.789 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:57:34.708 NotebookApp] Saving file at /Test.ipynb
+[W 22:57:34.710 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:59:34.753 NotebookApp] Saving file at /Test.ipynb
+[W 22:59:34.755 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:01:34.882 NotebookApp] Saving file at /Test.ipynb
+[W 23:01:34.884 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:03:35.250 NotebookApp] Saving file at /Test.ipynb
+[W 23:03:35.252 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:05:34.728 NotebookApp] Saving file at /Test.ipynb
+[W 23:05:34.730 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:07:34.725 NotebookApp] Saving file at /Test.ipynb
+[W 23:07:34.727 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:09:35.269 NotebookApp] Saving file at /Test.ipynb
+[W 23:09:35.271 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:11:35.269 NotebookApp] Saving file at /Test.ipynb
+[W 23:11:35.271 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:13:34.740 NotebookApp] Saving file at /Test.ipynb
+[W 23:13:34.742 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:17:34.748 NotebookApp] Saving file at /Test.ipynb
+[W 23:17:34.750 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:19:34.835 NotebookApp] Saving file at /Test.ipynb
+[W 23:19:34.837 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:20:26.016 NotebookApp] Saving file at /Test.ipynb
+[W 23:20:26.017 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:20:27.291 NotebookApp] Shutting down on /api/shutdown request.
+[I 23:20:27.291 NotebookApp] Shutting down 1 kernel
+[I 23:20:27.291 NotebookApp] Kernel shutdown: e6ff3b9d-e3b5-42ea-baef-3fe420513753
+[I 23:20:27.535 NotebookApp] Starting buffering for e6ff3b9d-e3b5-42ea-baef-3fe420513753:c84af5bde3c44a398ee901a8351c5ef9
+[I 23:20:27.539 NotebookApp] Kernel shutdown: e6ff3b9d-e3b5-42ea-baef-3fe420513753
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/bin/jupyter-notebook", line 8, in <module>
+    sys.exit(main())
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_core/application.py", line 254, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/traitlets/config/application.py", line 846, in launch_instance
+    app.start()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2361, in start
+    self.cleanup_kernels()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2140, in cleanup_kernels
+    run_sync(self.kernel_manager.shutdown_all())
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/utils.py", line 21, in wrapped
+    return loop.run_until_complete(coro(*args, **kwargs))
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/nest_asyncio.py", line 70, in run_until_complete
+    return f.result()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/tasks.py", line 280, in __step
+    result = coro.send(None)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 257, in _async_shutdown_all
+    futs = [ensure_async(self.shutdown_kernel(kid, now=now)) for kid in kids]
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 257, in <listcomp>
+    futs = [ensure_async(self.shutdown_kernel(kid, now=now)) for kid in kids]
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+    self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/utils.py", line 21, in wrapped
+    return loop.run_until_complete(coro(*args, **kwargs))
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/nest_asyncio.py", line 70, in run_until_complete
+    return f.result()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/tasks.py", line 280, in __step
+    result = coro.send(None)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 217, in _async_shutdown_kernel
+    self.remove_kernel(kernel_id)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 247, in remove_kernel
+    return self._kernels.pop(kernel_id)
+KeyError: 'e6ff3b9d-e3b5-42ea-baef-3fe420513753'
+[W 14:24:43.027 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 14:24:43.028 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 14:24:43.030 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 14:24:43.030 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 14:24:43.030 NotebookApp] http://pesante:9990/
+[I 14:24:43.030 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 14:24:50.204 NotebookApp] 302 GET / (127.0.0.1) 1.130000ms
+[W 14:24:51.224 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210928142442 (127.0.0.1) 7.940000ms referer=http://127.0.0.1:1234/tree?
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 14:24:55.297 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:24:55.451 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210928142442 (127.0.0.1) 6.540000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:24:55.558 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210928142442 (127.0.0.1) 1.430000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+ERROR:asyncio:Exception in callback <TaskWakeupMethWrapper object at 0x7f129371a4f0>(<Future finis...1493\r\n\r\n'>)
+handle: <Handle <TaskWakeupMethWrapper object at 0x7f129371a4f0>(<Future finis...1493\r\n\r\n'>)>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-8' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:823> wait_for=<Future finished result=b'GET /api/co...81493\r\n\r\n'> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-2' coro=<KernelManager._async_start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/manager.py:331>> is being executed.
+[I 14:24:56.676 NotebookApp] Kernel started: 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f, name: python3
+[W 14:24:57.178 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210928142442 (127.0.0.1) 5.150000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 14:26:27.553 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 14:26:32.558 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:cc6f3547fc3a469f8303a02310e2aa6c
+[I 14:33:07.421 NotebookApp] 302 GET / (127.0.0.1) 0.990000ms
+[I 14:33:11.422 NotebookApp] 302 GET / (127.0.0.1) 1.080000ms
+[W 14:33:22.959 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210928142442 (127.0.0.1) 4.890000ms referer=http://127.0.0.1:1234/tree?
+[W 14:33:57.215 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:33:57.428 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210928142442 (127.0.0.1) 4.930000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:33:57.497 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210928142442 (127.0.0.1) 0.870000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:34:01.633 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210928142442 (127.0.0.1) 1.450000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 14:35:59.428 NotebookApp] Saving file at /Test.ipynb
+[W 14:35:59.431 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:43:58.610 NotebookApp] Saving file at /Test.ipynb
+[W 14:43:58.612 NotebookApp] Notebook Test.ipynb is not trusted
+[I 15:03:41.454 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 15:13:58.561 NotebookApp] Restoring connection for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 15:33:23.270 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 15:39:17.968 NotebookApp] Restoring connection for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 17:39:15.400 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 17:39:39.957 NotebookApp] Restoring connection for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 17:39:59.656 NotebookApp] Saving file at /Test.ipynb
+[W 17:39:59.658 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:41:59.818 NotebookApp] Saving file at /Test.ipynb
+[W 17:41:59.820 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:55:53.428 NotebookApp] Saving file at /Test.ipynb
+[W 17:55:53.430 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:55:54.202 NotebookApp] Saving file at /Test.ipynb
+[W 17:55:54.203 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:55:59.058 NotebookApp] Saving file at /Test.ipynb
+[W 17:55:59.060 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:00.221 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:00.222 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:15:59.266 NotebookApp] Saving file at /Test.ipynb
+[W 18:15:59.268 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:17:59.902 NotebookApp] Saving file at /Test.ipynb
+[W 18:17:59.902 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:41:14.781 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 19:52:31.467 NotebookApp] Restoring connection for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 19:55:59.389 NotebookApp] Saving file at /Test.ipynb
+[W 19:55:59.391 NotebookApp] Notebook Test.ipynb is not trusted
+[I 19:59:59.277 NotebookApp] Saving file at /Test.ipynb
+[W 19:59:59.279 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:03:58.620 NotebookApp] Saving file at /Test.ipynb
+[W 20:03:58.620 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:05:59.342 NotebookApp] Saving file at /Test.ipynb
+[W 20:05:59.343 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:07:58.456 NotebookApp] Saving file at /Test.ipynb
+[W 20:07:58.458 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:09:59.355 NotebookApp] Saving file at /Test.ipynb
+[W 20:09:59.357 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:12:30.271 NotebookApp] Saving file at /Test.ipynb
+[W 20:12:30.274 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:18:01.541 NotebookApp] Saving file at /Test.ipynb
+[W 20:18:01.543 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:23:31.542 NotebookApp] Saving file at /Test.ipynb
+[W 20:23:31.543 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:29:01.010 NotebookApp] Saving file at /Test.ipynb
+[W 20:29:01.010 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:34:31.634 NotebookApp] Saving file at /Test.ipynb
+[W 20:34:31.635 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:51:00.962 NotebookApp] Saving file at /Test.ipynb
+[W 20:51:00.964 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:56:31.537 NotebookApp] Saving file at /Test.ipynb
+[W 20:56:31.539 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:13:01.615 NotebookApp] Saving file at /Test.ipynb
+[W 21:13:01.617 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:24:02.402 NotebookApp] Saving file at /Test.ipynb
+[W 21:24:02.404 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:08:01.662 NotebookApp] Saving file at /Test.ipynb
+[W 22:08:01.664 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:13:31.424 NotebookApp] Saving file at /Test.ipynb
+[W 22:13:31.426 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:19:01.606 NotebookApp] Saving file at /Test.ipynb
+[W 22:19:01.607 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:52:01.589 NotebookApp] Saving file at /Test.ipynb
+[W 22:52:01.590 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:04:27.144 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:8a16071c26784d12816d568943f6f9a7
+[I 22:03:49.716 NotebookApp] 302 GET / (127.0.0.1) 1.010000ms
+[W 22:03:50.763 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210928142442 (127.0.0.1) 4.790000ms referer=http://127.0.0.1:1234/tree?
+[W 22:03:54.740 NotebookApp] Notebook Test.ipynb is not trusted
+[W 22:03:54.780 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210928142442 (127.0.0.1) 2.490000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:03:54.857 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210928142442 (127.0.0.1) 4.750000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:03:57.229 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210928142442 (127.0.0.1) 1.050000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 22:05:57.296 NotebookApp] Saving file at /Test.ipynb
+[W 22:05:57.299 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:07:57.320 NotebookApp] Saving file at /Test.ipynb
+[W 22:07:57.322 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:09:57.377 NotebookApp] Saving file at /Test.ipynb
+[W 22:09:57.379 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:13:57.389 NotebookApp] Saving file at /Test.ipynb
+[W 22:13:57.391 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:27:57.409 NotebookApp] Saving file at /Test.ipynb
+[W 22:27:57.411 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:29:57.641 NotebookApp] Saving file at /Test.ipynb
+[W 22:29:57.643 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:33:57.593 NotebookApp] Saving file at /Test.ipynb
+[W 22:33:57.595 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:37:57.603 NotebookApp] Saving file at /Test.ipynb
+[W 22:37:57.605 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:40:43.602 NotebookApp] Saving file at /Test.ipynb
+[W 22:40:43.604 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:41:57.291 NotebookApp] Saving file at /Test.ipynb
+[W 22:41:57.293 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:05.945 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:05.947 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:15.574 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:15.575 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:16.218 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:16.220 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:18.264 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:18.265 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:21.130 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:21.132 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:24.109 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:24.110 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:56.308 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:56.310 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:43:56.843 NotebookApp] Saving file at /Test.ipynb
+[W 22:43:56.846 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:44:45.615 NotebookApp] Saving file at /Test.ipynb
+[W 22:44:45.617 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:47:57.305 NotebookApp] Saving file at /Test.ipynb
+[W 22:47:57.307 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:48:04.220 NotebookApp] Saving file at /Test.ipynb
+[W 22:48:04.223 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:49:57.346 NotebookApp] Saving file at /Test.ipynb
+[W 22:49:57.348 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:51:57.314 NotebookApp] Saving file at /Test.ipynb
+[W 22:51:57.316 NotebookApp] Notebook Test.ipynb is not trusted
+[W 22:53:27.812 NotebookApp] WebSocket ping timeout after 119916 ms.
+[I 22:53:32.815 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:1c4ea1fc021b47788f4f7af5e7469faf
+[W 22:54:22.464 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210928142442 (127.0.0.1) 4.820000ms referer=http://127.0.0.1:1234/tree?
+[W 22:54:24.278 NotebookApp] Notebook Test.ipynb is not trusted
+[W 22:54:24.315 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210928142442 (127.0.0.1) 0.970000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:54:24.397 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210928142442 (127.0.0.1) 4.840000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 22:54:25.722 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210928142442 (127.0.0.1) 4.900000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 22:56:25.709 NotebookApp] Saving file at /Test.ipynb
+[W 22:56:25.712 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:58:05.494 NotebookApp] Saving file at /Test.ipynb
+[W 22:58:05.496 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:10:12.929 NotebookApp] Shutting down on /api/shutdown request.
+[I 23:10:12.930 NotebookApp] Shutting down 1 kernel
+[I 23:10:12.932 NotebookApp] Kernel shutdown: 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f
+[I 23:10:13.157 NotebookApp] Starting buffering for 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f:7ec46edcb7774e3cae3ef0771213559e
+[I 23:10:13.159 NotebookApp] Kernel shutdown: 6d3f60ff-62d7-4e5b-bb62-ce71a143a17f
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/bin/jupyter-notebook", line 8, in <module>
+    sys.exit(main())
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_core/application.py", line 254, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/traitlets/config/application.py", line 846, in launch_instance
+    app.start()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2361, in start
+    self.cleanup_kernels()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2140, in cleanup_kernels
+    run_sync(self.kernel_manager.shutdown_all())
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/utils.py", line 21, in wrapped
+    return loop.run_until_complete(coro(*args, **kwargs))
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/nest_asyncio.py", line 70, in run_until_complete
+    return f.result()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/tasks.py", line 280, in __step
+    result = coro.send(None)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 257, in _async_shutdown_all
+    futs = [ensure_async(self.shutdown_kernel(kid, now=now)) for kid in kids]
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 257, in <listcomp>
+    futs = [ensure_async(self.shutdown_kernel(kid, now=now)) for kid in kids]
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py", line 304, in shutdown_kernel
+    self.pinned_superclass.shutdown_kernel(self, kernel_id, now=now, restart=restart)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/utils.py", line 21, in wrapped
+    return loop.run_until_complete(coro(*args, **kwargs))
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/nest_asyncio.py", line 70, in run_until_complete
+    return f.result()
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/futures.py", line 178, in result
+    raise self._exception
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/tasks.py", line 280, in __step
+    result = coro.send(None)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 217, in _async_shutdown_kernel
+    self.remove_kernel(kernel_id)
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/jupyter_client/multikernelmanager.py", line 247, in remove_kernel
+    return self._kernels.pop(kernel_id)
+KeyError: '6d3f60ff-62d7-4e5b-bb62-ce71a143a17f'
+[W 15:03:26.817 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 15:03:26.819 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 15:03:26.820 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 15:03:26.821 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 15:03:26.821 NotebookApp] http://pesante:9990/
+[I 15:03:26.821 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 15:03:34.161 NotebookApp] 302 GET / (127.0.0.1) 1.180000ms
+[W 15:03:37.373 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210930150326 (127.0.0.1) 6.810000ms referer=http://127.0.0.1:1234/tree?
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 15:03:45.882 NotebookApp] Notebook Test.ipynb is not trusted
+[W 15:03:45.902 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210930150326 (127.0.0.1) 1.080000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 15:03:45.967 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210930150326 (127.0.0.1) 7.250000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+ERROR:asyncio:Exception in callback <TaskStepMethWrapper object at 0x7f715042c4f0>()
+handle: <Handle <TaskStepMethWrapper object at 0x7f715042c4f0>()>
+Traceback (most recent call last):
+  File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+RuntimeError: Cannot enter into task <Task pending name='Task-28' coro=<HTTP1ServerConnection._server_request_loop() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/http1connection.py:840> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> while another task <Task pending name='Task-38' coro=<MappingKernelManager.start_kernel() running at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/services/kernels/kernelmanager.py:176> cb=[IOLoop.add_future.<locals>.<lambda>() at /home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/tornado/ioloop.py:688]> is being executed.
+[I 15:03:50.482 NotebookApp] Kernel started: e5bab1f0-66bb-4f02-8de2-a1fda956e7bf, name: python3
+/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/json/encoder.py:257: UserWarning: date_default is deprecated since jupyter_client 7.0.0. Use jupyter_client.jsonutil.json_default.
+  return _iterencode(o, 0)
+[W 15:04:28.319 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210930150326 (127.0.0.1) 1.150000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 15:07:49.099 NotebookApp] Saving file at /Test.ipynb
+[W 15:07:49.101 NotebookApp] Notebook Test.ipynb is not trusted
+[I 15:09:49.194 NotebookApp] Saving file at /Test.ipynb
+[W 15:09:49.196 NotebookApp] Notebook Test.ipynb is not trusted
+[I 15:50:40.869 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3c07ec7bd4f84e528cc5751e91b5945b
+[I 16:03:26.503 NotebookApp] Restoring connection for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3c07ec7bd4f84e528cc5751e91b5945b
+[I 16:14:38.389 NotebookApp] Saving file at /Test.ipynb
+[W 16:14:38.392 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:14:45.414 NotebookApp] Saving file at /Test.ipynb
+[W 16:14:45.416 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:17:49.623 NotebookApp] Saving file at /Test.ipynb
+[W 16:17:49.625 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:19:49.118 NotebookApp] Saving file at /Test.ipynb
+[W 16:19:49.120 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:21:17.667 NotebookApp] Saving file at /Test.ipynb
+[W 16:21:17.669 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:21:18.630 NotebookApp] Saving file at /Test.ipynb
+[W 16:21:18.632 NotebookApp] Notebook Test.ipynb is not trusted
+[W 16:21:23.662 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210930150326 (127.0.0.1) 4.990000ms referer=http://127.0.0.1:1234/tree?
+[I 16:21:27.887 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3c07ec7bd4f84e528cc5751e91b5945b
+[W 16:21:28.529 NotebookApp] Notebook Test.ipynb is not trusted
+[W 16:21:28.709 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210930150326 (127.0.0.1) 5.160000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 16:21:28.715 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210930150326 (127.0.0.1) 4.040000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 16:21:34.118 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210930150326 (127.0.0.1) 0.980000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 16:23:31.180 NotebookApp] Saving file at /Test.ipynb
+[W 16:23:31.182 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:24:07.163 NotebookApp] Saving file at /Test.ipynb
+[W 16:24:07.165 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:25:31.185 NotebookApp] Saving file at /Test.ipynb
+[W 16:25:31.187 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:27:31.192 NotebookApp] Saving file at /Test.ipynb
+[W 16:27:31.194 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:29:31.526 NotebookApp] Saving file at /Test.ipynb
+[W 16:29:31.528 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:31:31.293 NotebookApp] Saving file at /Test.ipynb
+[W 16:31:31.295 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:35:32.244 NotebookApp] Saving file at /Test.ipynb
+[W 16:35:32.246 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:21:31.447 NotebookApp] Saving file at /Test.ipynb
+[W 17:21:31.449 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:31:31.434 NotebookApp] Saving file at /Test.ipynb
+[W 17:31:31.436 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:37:31.446 NotebookApp] Saving file at /Test.ipynb
+[W 17:37:31.448 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:40:45.035 NotebookApp] Saving file at /Test.ipynb
+[W 17:40:45.037 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:40:45.617 NotebookApp] Saving file at /Test.ipynb
+[W 17:40:45.617 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:40:54.534 NotebookApp] Saving file at /Test.ipynb
+[W 17:40:54.537 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:41:31.084 NotebookApp] Saving file at /Test.ipynb
+[W 17:41:31.086 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:41:31.385 NotebookApp] Saving file at /Test.ipynb
+[W 17:41:31.387 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:41:41.145 NotebookApp] Saving file at /Test.ipynb
+[W 17:41:41.148 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:43:28.009 NotebookApp] Saving file at /Test.ipynb
+[W 17:43:28.011 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:43:29.055 NotebookApp] Saving file at /Test.ipynb
+[W 17:43:29.056 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:43:56.756 NotebookApp] Saving file at /Test.ipynb
+[W 17:43:56.758 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:43:57.371 NotebookApp] Saving file at /Test.ipynb
+[W 17:43:57.371 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:43:58.974 NotebookApp] Saving file at /Test.ipynb
+[W 17:43:58.976 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:20.554 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:20.557 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:21.111 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:21.112 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:46.192 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:46.195 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:46.804 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:46.804 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:47.490 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:47.493 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:51.020 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:51.022 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:45:31.248 NotebookApp] Saving file at /Test.ipynb
+[W 17:45:31.251 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:45:58.779 NotebookApp] Saving file at /Test.ipynb
+[W 17:45:58.781 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:45:59.786 NotebookApp] Saving file at /Test.ipynb
+[W 17:45:59.787 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:46:14.264 NotebookApp] Saving file at /Test.ipynb
+[W 17:46:14.266 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:46:31.745 NotebookApp] Saving file at /Test.ipynb
+[W 17:46:31.747 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:46:32.845 NotebookApp] Saving file at /Test.ipynb
+[W 17:46:32.846 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:46:46.748 NotebookApp] Saving file at /Test.ipynb
+[W 17:46:46.750 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:46:47.968 NotebookApp] Saving file at /Test.ipynb
+[W 17:46:47.969 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:47:31.249 NotebookApp] Saving file at /Test.ipynb
+[W 17:47:31.251 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:50:11.820 NotebookApp] Saving file at /Test.ipynb
+[W 17:50:11.822 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:50:12.528 NotebookApp] Saving file at /Test.ipynb
+[W 17:50:12.530 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:51:31.948 NotebookApp] Saving file at /Test.ipynb
+[W 17:51:31.951 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:53:16.813 NotebookApp] Saving file at /Test.ipynb
+[W 17:53:16.815 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:53:24.656 NotebookApp] Saving file at /Test.ipynb
+[W 17:53:24.658 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:53:25.374 NotebookApp] Saving file at /Test.ipynb
+[W 17:53:25.376 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:53:26.151 NotebookApp] Saving file at /Test.ipynb
+[W 17:53:26.153 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:55:31.404 NotebookApp] Saving file at /Test.ipynb
+[W 17:55:31.406 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:56:29.165 NotebookApp] Saving file at /Test.ipynb
+[W 17:56:29.167 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:56:29.792 NotebookApp] Saving file at /Test.ipynb
+[W 17:56:29.792 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:57:31.261 NotebookApp] Saving file at /Test.ipynb
+[W 17:57:31.263 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:04.562 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:04.564 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:20.606 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:20.608 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:20.713 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:20.714 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:30.011 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:30.013 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:48.200 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:48.202 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:14:51.366 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3d8a4fb29ac148668710f2f63e2ad5b8
+[I 21:14:17.793 NotebookApp] Restoring connection for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3d8a4fb29ac148668710f2f63e2ad5b8
+[I 21:37:31.411 NotebookApp] Saving file at /Test.ipynb
+[W 21:37:31.414 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:39:31.219 NotebookApp] Saving file at /Test.ipynb
+[W 21:39:31.221 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:41:31.201 NotebookApp] Saving file at /Test.ipynb
+[W 21:41:31.203 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:42:19.715 NotebookApp] Saving file at /Test.ipynb
+[W 21:42:19.718 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:43:03.603 NotebookApp] Saving file at /Test.ipynb
+[W 21:43:03.606 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:43:04.182 NotebookApp] Saving file at /Test.ipynb
+[W 21:43:04.182 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:43:22.100 NotebookApp] Saving file at /Test.ipynb
+[W 21:43:22.103 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:43:22.952 NotebookApp] Saving file at /Test.ipynb
+[W 21:43:22.953 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:43:31.211 NotebookApp] Saving file at /Test.ipynb
+[W 21:43:31.213 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:05:31.403 NotebookApp] Saving file at /Test.ipynb
+[W 22:05:31.405 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:07:31.219 NotebookApp] Saving file at /Test.ipynb
+[W 22:07:31.221 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:19:31.433 NotebookApp] Saving file at /Test.ipynb
+[W 22:19:31.435 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:25:31.966 NotebookApp] Saving file at /Test.ipynb
+[W 22:25:31.968 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:31:31.325 NotebookApp] Saving file at /Test.ipynb
+[W 22:31:31.328 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:36:17.710 NotebookApp] Saving file at /Test.ipynb
+[W 22:36:17.712 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:36:18.521 NotebookApp] Saving file at /Test.ipynb
+[W 22:36:18.524 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:41:31.457 NotebookApp] Saving file at /Test.ipynb
+[W 22:41:31.460 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:45:31.265 NotebookApp] Saving file at /Test.ipynb
+[W 22:45:31.267 NotebookApp] Notebook Test.ipynb is not trusted
+[I 23:00:56.582 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3d8a4fb29ac148668710f2f63e2ad5b8
+[I 23:14:56.512 NotebookApp] Restoring connection for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3d8a4fb29ac148668710f2f63e2ad5b8
+[I 23:15:14.389 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:3d8a4fb29ac148668710f2f63e2ad5b8
+[W 16:33:36.675 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 16:33:36.676 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 16:33:36.676 NotebookApp] The port 9990 is already in use, trying another port.
+[I 16:33:36.677 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 16:33:36.677 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 16:33:36.677 NotebookApp] http://pesante:9991/
+[I 16:33:36.677 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 16:34:00.081 NotebookApp] 302 GET / (127.0.0.1) 1.070000ms
+[W 16:35:05.517 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210930150326 (127.0.0.1) 3.700000ms referer=http://127.0.0.1:1234/tree?
+[W 16:36:37.126 NotebookApp] Notebook Test.ipynb is not trusted
+[W 16:36:37.148 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210930150326 (127.0.0.1) 1.010000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 16:36:37.359 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210930150326 (127.0.0.1) 2.710000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 16:36:43.828 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210930150326 (127.0.0.1) 3.760000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 16:38:41.519 NotebookApp] Saving file at /Test.ipynb
+[W 16:38:41.522 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:40:41.859 NotebookApp] Saving file at /Test.ipynb
+[W 16:40:41.861 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:42:41.659 NotebookApp] Saving file at /Test.ipynb
+[W 16:42:41.662 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:28:41.695 NotebookApp] Saving file at /Test.ipynb
+[W 17:28:41.697 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:32:41.770 NotebookApp] Saving file at /Test.ipynb
+[W 17:32:41.772 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:34:41.552 NotebookApp] Saving file at /Test.ipynb
+[W 17:34:41.553 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:40:41.969 NotebookApp] Saving file at /Test.ipynb
+[W 17:40:41.971 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:42:42.067 NotebookApp] Saving file at /Test.ipynb
+[W 17:42:42.069 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:44:41.965 NotebookApp] Saving file at /Test.ipynb
+[W 17:44:41.968 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:46:41.560 NotebookApp] Saving file at /Test.ipynb
+[W 17:46:41.562 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:48:41.547 NotebookApp] Saving file at /Test.ipynb
+[W 17:48:41.550 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:56:41.773 NotebookApp] Saving file at /Test.ipynb
+[W 17:56:41.775 NotebookApp] Notebook Test.ipynb is not trusted
+[I 17:58:41.831 NotebookApp] Saving file at /Test.ipynb
+[W 17:58:41.833 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:00:41.554 NotebookApp] Saving file at /Test.ipynb
+[W 18:00:41.556 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:02:41.551 NotebookApp] Saving file at /Test.ipynb
+[W 18:02:41.553 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:04:41.587 NotebookApp] Saving file at /Test.ipynb
+[W 18:04:41.590 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:06:41.582 NotebookApp] Saving file at /Test.ipynb
+[W 18:06:41.585 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:08:41.542 NotebookApp] Saving file at /Test.ipynb
+[W 18:08:41.545 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:10:41.553 NotebookApp] Saving file at /Test.ipynb
+[W 18:10:41.555 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:12:41.571 NotebookApp] Saving file at /Test.ipynb
+[W 18:12:41.573 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:14:41.587 NotebookApp] Saving file at /Test.ipynb
+[W 18:14:41.589 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:16:41.586 NotebookApp] Saving file at /Test.ipynb
+[W 18:16:41.588 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:18:41.586 NotebookApp] Saving file at /Test.ipynb
+[W 18:18:41.588 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:20:41.781 NotebookApp] Saving file at /Test.ipynb
+[W 18:20:41.781 NotebookApp] Notebook Test.ipynb is not trusted
+[I 18:27:37.186 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:9b0fab177ac8443b8f9343fbb4f2d928
+[I 19:58:04.053 NotebookApp] 302 GET / (127.0.0.1) 1.030000ms
+[W 19:58:05.270 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210930150326 (127.0.0.1) 5.110000ms referer=http://127.0.0.1:1234/tree?
+[W 20:44:35.379 NotebookApp] Notebook Test.ipynb is not trusted
+[W 20:44:35.448 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210930150326 (127.0.0.1) 5.820000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 20:44:35.455 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210930150326 (127.0.0.1) 4.900000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 20:44:37.544 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210930150326 (127.0.0.1) 4.950000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 20:46:37.719 NotebookApp] Saving file at /Test.ipynb
+[W 20:46:37.722 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:48:37.316 NotebookApp] Saving file at /Test.ipynb
+[W 20:48:37.318 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:50:37.771 NotebookApp] Saving file at /Test.ipynb
+[W 20:50:37.773 NotebookApp] Notebook Test.ipynb is not trusted
+[I 20:52:37.325 NotebookApp] Saving file at /Test.ipynb
+[W 20:52:37.327 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:06:37.919 NotebookApp] Saving file at /Test.ipynb
+[W 21:06:37.921 NotebookApp] Notebook Test.ipynb is not trusted
+[I 21:10:37.470 NotebookApp] Saving file at /Test.ipynb
+[W 21:10:37.471 NotebookApp] Notebook Test.ipynb is not trusted
+[I 22:02:00.100 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:cd1e58042bfe441086084e7dc4a2c03f
+[W 14:33:56.176 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[W 14:33:56.177 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/site-packages/notebook/notebookapp.py", line 2027, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/pesante/Study_Tools/anaconda3/envs/text2event/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[I 14:33:56.178 NotebookApp] The port 9990 is already in use, trying another port.
+[I 14:33:56.178 NotebookApp] The port 9991 is already in use, trying another port.
+[I 14:33:56.178 NotebookApp] Serving notebooks from local directory: /home/pesante/Study/Information_Extraction/Text2Event
+[I 14:33:56.178 NotebookApp] Jupyter Notebook 6.4.3 is running at:
+[I 14:33:56.178 NotebookApp] http://pesante:9992/
+[I 14:33:56.178 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 14:34:04.582 NotebookApp] 302 GET / (127.0.0.1) 1.070000ms
+[W 14:34:06.335 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/tree_tab/main.js?v=20210930150326 (127.0.0.1) 4.140000ms referer=http://127.0.0.1:1234/tree?
+[W 14:34:16.377 NotebookApp] Notebook Test.ipynb is not trusted
+[W 14:34:16.995 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20210930150326 (127.0.0.1) 1.780000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:34:16.996 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20210930150326 (127.0.0.1) 1.220000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 14:34:20.167 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210930150326 (127.0.0.1) 4.890000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 14:36:19.344 NotebookApp] Saving file at /Test.ipynb
+[W 14:36:19.346 NotebookApp] Notebook Test.ipynb is not trusted
+[I 14:38:19.391 NotebookApp] Saving file at /Test.ipynb
+[W 14:38:19.393 NotebookApp] Notebook Test.ipynb is not trusted
+[I 16:07:31.210 NotebookApp] Starting buffering for e5bab1f0-66bb-4f02-8de2-a1fda956e7bf:a95a4d5ae12648ed8bbfbc8f16b27142

@@ -24,20 +24,22 @@ def print_tree(tree):
 
 
 def get_label_name_tree(label_name_list, tokenizer, end_symbol='<end>'):
+    # Change recurring into non-recurring labels, 
     sub_token_tree = dict()
 
+    # this is label_name token ids
     label_tree = dict()
     for typename in label_name_list:
         after_tokenized = tokenizer.encode(typename, add_special_tokens=False)
         label_tree[typename] = after_tokenized
 
     for _, sub_label_seq in label_tree.items():
+        # sub_label_seq is the tokenize_ids of typename
         parent = sub_token_tree
         for value in sub_label_seq:
             if value not in parent:
                 parent[value] = dict()
             parent = parent[value]
-
         parent[end_symbol] = None
 
     return sub_token_tree

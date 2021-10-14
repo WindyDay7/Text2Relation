@@ -51,9 +51,12 @@ def check_well_form(tree_str):
 
 
 def clean_text(tree_str):
+    """
+    If there are something after the whole event sentence, clear it
+    """
     count = 0
     sum_count = 0
-
+    # because tree_str was inserted spaces
     tree_str_list = tree_str.split()
     # bracket_num = find_bracket_num(tree_str_list)
     # bracket_num = find_bracket_num(tree_str_list)
@@ -98,15 +101,13 @@ def get_tree_str(tree):
 
 
 class TreePredictParser(PredictParser):
-
     def decode(self, gold_list, pred_list, text_list=None, raw_list=None) -> Tuple[List[Dict], Counter]:
         """
-
-        :param gold_list:
-        :param pred_list:
+        :param gold_list: data structure type is list,
+        :param pred_list: data structure type is list
         :param text_list:
         :param raw_list:
-        :return:
+        return:
             dict:
                 pred_event -> [(type1, trigger1), (type2, trigger2), ...]
                 gold_event -> [(type1, trigger1), (type2, trigger2), ...]
@@ -116,8 +117,10 @@ class TreePredictParser(PredictParser):
         """
         counter = Counter()
         well_formed_list = []
-
+        # print(gold_list)
+        # print(pred_list)
         def convert_bracket(_text):
+            # replace the special token labels to Formal statement
             _text = add_space(_text)
             for start in [role_start, type_start]:
                 _text = _text.replace(start, left_bracket)
@@ -135,9 +138,10 @@ class TreePredictParser(PredictParser):
             raw_list = [None] * len(pred_list)
 
         for gold, pred, text, raw_data in zip(gold_list, pred_list, text_list, raw_list):
+            # Also add the space between the speical token
             gold = convert_bracket(gold)
             pred = convert_bracket(pred)
-
+            # prediction is a sentence, not sentences list
             pred = clean_text(pred)
 
             try:
@@ -165,15 +169,15 @@ class TreePredictParser(PredictParser):
                 counter.update(['well-formed'])
 
             except ValueError:
-
                 counter.update(['ill-formed'])
                 instance['pred_tree'] = ParentedTree.fromstring(left_bracket + right_bracket, brackets=brackets)
-
-            instance['pred_event'], instance['pred_role'], instance['pred_record'] = self.get_event_list(
+            # This is one sentence
+            instance['pred_relation'], instance['pred_record'] = self.get_relation_list(
                 tree=instance["pred_tree"],
                 text=instance['text']
             )
-            instance['gold_event'], instance['gold_role'], instance['gold_record'] = self.get_event_list(
+            # the text is all None
+            instance['gold_relation'], instance['gold_record'] = self.get_relation_list(
                 tree=instance["gold_tree"],
                 text=instance['text']
             )
@@ -185,19 +189,19 @@ class TreePredictParser(PredictParser):
         return well_formed_list, counter
 
     def get_event_list(self, tree, text=None):
-
+        # The tree is a tree structure in python
         event_list = list()
         role_list = list()
         record_list = list()
 
         for event_tree in tree:
-
             if isinstance(event_tree, str):
                 continue
             if len(event_tree) == 0:
                 continue
-
+            # The first level is the event type
             event_type = event_tree.label()
+            # the trigger text span , the text span of trigger might more than one word
             event_trigger = get_tree_str(event_tree)
 
             # Invalid Event Type
@@ -211,8 +215,9 @@ class TreePredictParser(PredictParser):
                       'type': event_type,
                       'trigger': event_trigger}
             for role_tree in event_tree[1:]:
+                # argument text span, text span of the sentence
                 role_text = get_tree_str(role_tree)
-
+                role_text = ' '.join(role_text.split(' ')[1:])
                 if isinstance(role_tree, str) or len(role_tree) < 1:
                     continue
 
@@ -222,7 +227,7 @@ class TreePredictParser(PredictParser):
                 # Invalid Text Span
                 if text is not None and role_text not in text:
                     continue
-
+                # role_tree.label is the arguments role, role_text is arguments text span
                 role_list += [(event_type, role_tree.label(), role_text)]
                 record['roles'] += [(event_type, role_tree.label(), role_text)]
 
@@ -230,3 +235,45 @@ class TreePredictParser(PredictParser):
             record_list += [record]
 
         return event_list, role_list, record_list
+
+    def get_relation_list(self, tree, text=None):
+        # The tree is a tree structure in python 
+        role_list = list()
+        record_list = list()
+
+        for relation_tree in tree:
+            if isinstance(relation_tree, str):
+                continue
+            if len(relation_tree) == 0:
+                continue
+            # The first level is the event type
+            relation_type = relation_tree.label().upper()
+
+
+            # Invalid relation Type
+            if self.relation_set and relation_type not in self.relation_set:
+                continue
+            # Invalid Text Span
+
+            record = {'relation': list(),
+                      'type': relation_type}
+
+            for role_tree in relation_tree:
+                # argument text span, text span of the sentence
+                if isinstance(role_tree, str):
+                    continue
+                role1_text = role_tree.label() + ' ' + get_tree_str(role_tree)
+                role2_text = role_tree[-1].label() + ' '+get_tree_str(role_tree[-1])
+                if isinstance(role_tree, str) or len(role_tree) < 1:
+                    continue
+
+                # Invalid Text Span
+                if text is not None and role1_text not in text:
+                    continue
+                # role_tree.label is the arguments role, role_text is arguments text span
+                role_list += [(relation_type, role1_text, role2_text)]
+                record['relation'] += [(relation_type, role1_text, role2_text)]
+
+            record_list += [record]
+
+        return role_list, record_list

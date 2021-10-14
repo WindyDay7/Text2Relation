@@ -9,8 +9,7 @@ EVENT_EXTRACTION_KEYS = ["trigger-P", "trigger-R", "trigger-F1",
 
 class PredictParser:
     def __init__(self, label_constraint):
-        self.predicate_set = label_constraint.type_list
-        self.role_set = label_constraint.role_list
+        self.relation_set = label_constraint.type_list
 
     def decode(self, gold_list, pred_list, text_list=None, raw_list=None) -> Tuple[List, Counter]:
         """
@@ -31,16 +30,10 @@ class PredictParser:
 
     @staticmethod
     def count_multi_event_role_in_instance(instance, counter):
-        if len(instance['gold_event']) != len(set(instance['gold_event'])):
-            counter.update(['multi-same-event-gold'])
-
-        if len(instance['gold_role']) != len(set(instance['gold_role'])):
+        if len(instance['gold_relation']) != len(set(instance['gold_relation'])):
             counter.update(['multi-same-role-gold'])
 
-        if len(instance['pred_event']) != len(set(instance['pred_event'])):
-            counter.update(['multi-same-event-pred'])
-
-        if len(instance['pred_role']) != len(set(instance['pred_role'])):
+        if len(instance['pred_relation']) != len(set(instance['pred_relation'])):
             counter.update(['multi-same-role-pred'])
 
 
