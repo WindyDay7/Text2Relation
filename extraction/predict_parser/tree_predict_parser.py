@@ -147,8 +147,8 @@ class TreePredictParser(PredictParser):
             try:
                 gold_tree = ParentedTree.fromstring(gold, brackets=brackets)
             except ValueError:
-                print(gold)
-                print(add_bracket(gold))
+                # print("wrong", gold)
+                # print("wrong gold", add_bracket(gold))
                 gold_tree = ParentedTree.fromstring(add_bracket(gold), brackets=brackets)
                 counter.update(['gold_tree add_bracket'])
 
@@ -263,7 +263,12 @@ class TreePredictParser(PredictParser):
                 if isinstance(role_tree, str):
                     continue
                 role1_text = role_tree.label() + ' ' + get_tree_str(role_tree)
-                role2_text = role_tree[-1].label() + ' '+get_tree_str(role_tree[-1])
+                if len(role_tree) <= 1:
+                    continue
+                elif isinstance(role_tree[-1], str):
+                    role2_text = role1_text[-1]
+                else:
+                    role2_text = role_tree[-1].label() + ' '+get_tree_str(role_tree[-1])
                 if isinstance(role_tree, str) or len(role_tree) < 1:
                     continue
 

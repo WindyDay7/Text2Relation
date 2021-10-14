@@ -11,9 +11,11 @@ class DyIEPP(TaskFormat):
         self.sentences = doc_json['sentences']
         self.ner = doc_json['ner']
         self.relations = doc_json['relations']
-        self.events = doc_json['events']
-        self.sentence_start = doc_json.get(
-            'sentence_start', doc_json['_sentence_start'])
+        start = 0
+        self.sentence_start = []
+        for one_sentence in doc_json['sentences']:
+            self.sentence_start.append(start)
+            start = start + len(one_sentence)
 
     def generate_relations(self):
         for relations_in_sentence, sentence_start, sentence in zip(self.relations, self.sentence_start, self.sentences):
@@ -195,16 +197,16 @@ def ace2005_en_file_tuple(output_folder):
     return file_tuple
 
 
-def ere_en_file_tuple(output_folder):
+def sci_file_tuple(output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder, exist_ok=True)
 
-    conll_2012_folder = "data/raw_data/ERE-EN"
+    conll_2012_folder = "data/raw_data/sci_relation"
 
     file_tuple = [
-        (conll_2012_folder + "/train.oneie.json", output_folder + '/train'),
-        (conll_2012_folder + "/dev.oneie.json", output_folder + '/val'),
-        (conll_2012_folder + "/test.oneie.json", output_folder + '/test'),
+        (conll_2012_folder + "/train.json", output_folder + '/train'),
+        (conll_2012_folder + "/dev.json", output_folder + '/val'),
+        (conll_2012_folder + "/test.json", output_folder + '/test'),
     ]
 
     return file_tuple

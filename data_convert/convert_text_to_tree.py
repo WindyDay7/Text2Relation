@@ -114,14 +114,15 @@ def convert_dyiepp_event(output_folder='data/new_text2tree/ace2005_event', type_
                        )
 
 
-def convert_ere_event(output_folder='data/text2tree/ere_event', type_format='subtype',
+def convert_sci_event(output_folder='data/new_text2tree/sci_relastion_', type_format='subtype',
                       ignore_nonevent=False, mark_tree=False):
-    from data_convert.task_format.event_extraction import ere_en_file_tuple
-    convert_file_tuple(file_tuple=ere_en_file_tuple,
+    from data_convert.task_format.event_extraction import sci_file_tuple
+    convert_file_tuple(file_tuple=sci_file_tuple,
                        output_folder=output_folder,
                        ignore_nonevent=ignore_nonevent,
                        mark_tree=mark_tree,
                        type_format=type_format,
+                       data_class=DyIEPP
                        )
 
 
@@ -138,9 +139,7 @@ if __name__ == "__main__":
                           mark_tree=False
                           )
 
-    """
-    convert_ere_event("data/text2tree/one_ie_ere_en_%s" % type_format_name,
+    convert_sci_event("data/new_text2tree/sci_relation_%s" % type_format_name,
                       type_format=type_format_name,
                       ignore_nonevent=False,
                       mark_tree=False)
-    """

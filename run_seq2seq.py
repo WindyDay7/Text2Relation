@@ -680,6 +680,7 @@ def main():
                 with open(output_test_preds_file, "w") as writer:
                     writer.write("\n".join(eval_preds))
 
+    print("training_args.do_predict is: ", training_args.do_predict)
     if training_args.do_predict:
         logger.info("*** Test ***")
 
