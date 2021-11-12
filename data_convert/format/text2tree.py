@@ -10,7 +10,6 @@ def get_str_from_tokens(tokens, sentence, separator=' '):
 
 type_start = '<extra_id_0>'
 type_end = '<extra_id_1>'
-type_middle = '<extra_id_2>'
 role_end = '<extra_id_3>'
 
 
@@ -37,39 +36,46 @@ class Text2Tree(TargetFormat):
         :return:
         """
         token_separator = '' if zh else ' '
-
+        relation_list = ["COMPARE", "PART-OF", "HYPONYM-OF"]
         relation_str_rep_list = list()
         # if(len(predicate_arguments)>2):
         #     print(predicate_arguments)
-        for predicate_argument in predicate_arguments:
-            relation_type = predicate_argument['type']
-
-            # predicate_argument['tokens'] is the trigger index
-            # tokens is the sentence tokens, we get the trigger text span here
-            # predicate_text = get_str_from_tokens(predicate_argument['tokens'], tokens, separator=token_separator)
-
-            # prefix_tokens[predicate_argument['tokens'][0]] = ['[ ']
-            # suffix_tokens[predicate_argument['tokens'][-1]] = [' ]']
-
-            # print(predicate_argument)
-            # role_name is the argument role, role_tokens are corresponding text span index
-            role_str_list = list()
-            for relation_pair in predicate_argument['arguments']:
-                # get the role text span from role tokens index
-                # print(role_tokens)
-                
-                first_entity = get_str_from_tokens(relation_pair[0], tokens, separator=token_separator)
-                second_entity = get_str_from_tokens(relation_pair[1], tokens, separator=token_separator)
-                
-                one_role_str = ' '.join([type_start, first_entity, type_start, second_entity, type_end, type_end])
-                role_str_list += [one_role_str]
-
-            role_str_list_str = ' '.join(role_str_list)
-            relation_str_rep = f"{type_start} {relation_type} {role_str_list_str} {relation_type} {type_end}"
-            relation_str_rep_list += [relation_str_rep]
         
-        source_text = token_separator.join(tokens)
-        target_text = ' '.join(relation_str_rep_list)
+        for define_relation_type in relation_list:
+            flag = False
+            for predicate_argument in predicate_arguments:
+                relation_type = predicate_argument['type']
+
+                # predicate_argument['tokens'] is the trigger index
+                # tokens is the sentence tokens, we get the trigger text span here
+                # predicate_text = get_str_from_tokens(predicate_argument['tokens'], tokens, separator=token_separator)
+
+                # prefix_tokens[predicate_argument['tokens'][0]] = ['[ ']
+                # suffix_tokens[predicate_argument['tokens'][-1]] = [' ]']
+
+                # print(predicate_argument)
+                # role_name is the argument role, role_tokens are corresponding text span index
+                role_str_list = list()
+                if relation_type in define_relation_type:
+                    flag = True
+                    for relation_pair in predicate_argument['arguments']:
+                        # get the role text span from role tokens index
+                        # print(role_tokens)
+                        
+                        first_entity = get_str_from_tokens(relation_pair[0], tokens, separator=token_separator)
+                        second_entity = get_str_from_tokens(relation_pair[1], tokens, separator=token_separator)
+                        
+                        one_role_str = ' '.join([type_start, first_entity, type_start, second_entity, type_end, type_end])
+                        role_str_list += [one_role_str]
+
+                    role_str_list_str = ' '.join(role_str_list)
+                    relation_str_rep = f"{type_start} {relation_type} {role_str_list_str} {relation_type} {type_end}"
+                    relation_str_rep_list += [relation_str_rep]
+                    break
+            if not flag:
+                relation_type
+            source_text = token_separator.join(tokens)
+            target_text = ' '.join(relation_str_rep_list)
 
         if not multi_tree:
             target_text = f'{type_start} ' + \
