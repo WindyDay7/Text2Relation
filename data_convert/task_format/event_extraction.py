@@ -126,7 +126,7 @@ class Event(TaskFormat):
             relation_type = relation['relation_type']
             for argument in relation['arguments']:
                 argument_entity = self.entities[argument['entity_id']]
-                arguments += [list(range(argument_entity['start'], argument_entity['end']))]
+                arguments += [list(range(argument_entity['start'], argument_entity['end'])), argument_entity['entity_type']]
             flag = False
             for old_relation in relations:
                 if relation_type == old_relation['type']:

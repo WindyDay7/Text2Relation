@@ -77,55 +77,7 @@ class Text2Tree(TargetFormat):
 
         return source_text, target_text
 
-    @staticmethod
-    def annotate_span(tokens, predicate_arguments, mark_tree=False, zh=False):
-        """
-        :param tokens:
-            US President George W. Bush told Canadian Prime Minister Jean Chretien by telephone Monday that he looked forward
-            to seeing him at the upcoming summit of major industrialized nations and Russia , the White House said Tuesday .
-        :param predicate_arguments:
-
-        :return:
-        mark_tree False
-            (
-                (Meet summit (Entity Russia) (Entity major industrialized nations))
-                (Phone-Write told (Entity US President George W. Bush) (Entity Canadian Prime Minister Jean Chretien) (Time-Within Monday))
-            )
-        mark_tree  True
-            (
-                (Meet summit [Entity Russia] [Entity major industrialized nations])
-                (Phone-Write told [Entity US President George W. Bush] [Entity Canadian Prime Minister Jean Chretien] [Time-Within Monday])
-            )
-        """
-
-        token_separator = '' if zh else ' '
-
-        relation_str_rep_list = list()
-
-        for predicate_argument in predicate_arguments:
-            relation_type = predicate_argument['type']
-
-            span_str_list = [' '.join([type_start, relation_type, type_end])]
-
-            for relation_pair in predicate_argument['arguments']:
-                # get the role text span from role tokens index
-                # print(role_tokens)
-
-                first_entity = get_str_from_tokens(
-                    relation_pair[0], tokens, separator=token_separator)
-                second_entity = get_str_from_tokens(
-                    relation_pair[1], tokens, separator=token_separator)
-
-                one_role_str = ' '.join(
-                    [type_start, first_entity, type_middle, second_entity, type_end])
-                span_str_list += [one_role_str]
-
-            relation_str_rep_list += [' '.join(span_str_list)]
-
-        source_text = token_separator.join(tokens)
-        target_text = f'{type_start} ' + ' '.join(relation_str_rep_list) + f' {type_end}'
-
-        return source_text, target_text
+    
 
 
 if __name__ == "__main__":
