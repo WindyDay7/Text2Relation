@@ -5,76 +5,6 @@ import os
 from data_convert.task_format.task_format import TaskFormat
 
 
-class DyIEPP(TaskFormat):
-    def __init__(self, doc_json):
-        self.doc_key = doc_json['doc_key']
-        self.sentences = doc_json['sentences']
-        self.ner = doc_json['ner']
-        self.relations = doc_json['relations']
-        start = 0
-        self.sentence_start = []
-        for one_sentence in doc_json['sentences']:
-            self.sentence_start.append(start)
-            start = start + len(one_sentence)
-
-    def generate_relations(self):
-        for relations_in_sentence, sentence_start, sentence in zip(self.relations, self.sentence_start, self.sentences):
-            relations = list()
-            for relation in relations_in_sentence:
-                # 'arguments': [['Arg-1', [9]], ['Arg-2', [14]]]
-                arguments = [list(range(relation[0]-sentence_start, relation[1]+1-sentence_start)),
-                              list(range(relation[2]-sentence_start, relation[3]+1-sentence_start))]
-                relation_type = relation[4].split('.')[0]
-                flag = False
-                for old_relation in relations:
-                    if relation_type == old_relation['type']:
-                        old_relation['arguments'].append(arguments)
-                        flag = True
-                        break
-                
-                if not flag:
-                    relations += [{'type': relation_type, 'arguments': [arguments]}]
-                
-        
-            yield {'tokens': sentence, 'relations': relations}
-
-    def generate_sentence(self, type_format='subtype'):
-        for _ner, sentence, events_in_sentence, sentence_start in zip(self.ner, self.sentences, self.events, self.sentence_start):
-            events = list()
-            for event in events_in_sentence:
-                trigger, event_type = event[0]
-                trigger -= sentence_start
-
-                suptype, subtype = event_type.split('.')
-
-                if type_format == 'subtype':
-                    event_type = subtype
-                elif type_format == 'suptype':
-                    event_type = suptype
-                else:
-                    event_type = suptype + type_format + subtype
-
-                arguments = list()
-                for start, end, role in event[1:]:
-                    start -= sentence_start
-                    end -= sentence_start
-                    arguments += [[role, list(range(start, end + 1))]]
-
-                # add the name_entity_reconganition
-                for argument in arguments:
-                    for ner_pos in _ner:
-                        if((ner_pos[0]-sentence_start) == argument[1][0]):
-                            argument.insert(1, ner_pos[2])
-                    if(len(argument) != 3):
-                        print("Wrong, this argument is not in the ner")
-
-                event = {'type': event_type, 'tokens': [
-                    trigger], 'arguments': arguments}
-
-                events += [event]
-            yield {'tokens': sentence, 'events': events}
-
-
 class Event(TaskFormat):
     """
     {
@@ -138,48 +68,6 @@ class Event(TaskFormat):
             
 
         yield {'tokens': self.sentence, 'relations': relations}
-
-    def generate_sentence(self, type_format='subtype'):
-        events = list()
-
-        for event in self.events:
-            arguments = list()
-            for argument in event['arguments']:
-                argument_entity = self.entities[argument['entity_id']]
-                arguments += [[argument['role'], argument_entity['entity_type'],
-                               list(range(argument_entity['start'], argument_entity['end']))]]
-
-            suptype, subtype = event['event_type'].split(':')
-
-            if type_format == 'subtype':
-                event_type = subtype
-            elif type_format == 'suptype':
-                event_type = suptype
-            else:
-                event_type = suptype + type_format + subtype
-
-            events += [{
-                'type': event_type,
-                'tokens': list(range(event['trigger']['start'], event['trigger']['end'])),
-                'arguments': arguments
-            }]
-
-        yield {'tokens': self.sentence, 'events': events}
-
-
-def DyIEPP_ace2005_file_tuple(output_folder):
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder, exist_ok=True)
-
-    conll_2012_folder = "data/raw_data/dyiepp_ace2005"
-
-    file_tuple = [
-        (conll_2012_folder + "/train.json", output_folder + '/train'),
-        (conll_2012_folder + "/dev.json", output_folder + '/val'),
-        (conll_2012_folder + "/test.json", output_folder + '/test'),
-    ]
-
-    return file_tuple
 
 
 def ace2005_en_file_tuple(output_folder):

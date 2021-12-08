@@ -8,10 +8,11 @@ def get_str_from_tokens(tokens, sentence, separator=' '):
     return separator.join(sentence[start:end_exclude])
 
 
-type_start = '<extra_id_0>'
-type_end = '<extra_id_1>'
-type_middle = '<extra_id_2>'
-role_end = '<extra_id_3>'
+Temp_start = '<Temp_S>'
+Temp_end = '<Temp_E>'
+Relation_start = '<Relation_S>'
+Relation_end = '<Relation_E>'
+Entity_Type = {"ORG":"<ORG>", "VEH":"<VEH>","WEA":"<WEA>", "LOC":"<LOC>", "FAC":"<FAC>","PER":"<PER>", "GPE":"<PER>", "End":"<End>"}
 
 
 class Text2Tree(TargetFormat):
@@ -37,7 +38,6 @@ class Text2Tree(TargetFormat):
         :return:
         """
         token_separator = '' if zh else ' '
-
         relation_str_rep_list = list()
         # if(len(predicate_arguments)>2):
         #     print(predicate_arguments)
@@ -50,7 +50,8 @@ class Text2Tree(TargetFormat):
 
             # prefix_tokens[predicate_argument['tokens'][0]] = ['[ ']
             # suffix_tokens[predicate_argument['tokens'][-1]] = [' ]']
-
+            if relation_type != "PART-WHOLE" and relation_type != "ORG-AFF" and relation_type != "GEN-AFF":
+                continue
             # print(predicate_argument)
             # role_name is the argument role, role_tokens are corresponding text span index
             role_str_list = list()
@@ -59,21 +60,21 @@ class Text2Tree(TargetFormat):
                 # print(role_tokens)
                 
                 first_entity = get_str_from_tokens(relation_pair[0], tokens, separator=token_separator)
-                second_entity = get_str_from_tokens(relation_pair[1], tokens, separator=token_separator)
-                
-                one_role_str = ' '.join([type_start, first_entity, type_start, second_entity, type_end, type_end])
+                second_entity = get_str_from_tokens(relation_pair[2], tokens, separator=token_separator)
+                entity1 = Entity_Type[relation_pair[1]]
+                entity2 = Entity_Type[relation_pair[3]]
+                one_role_str = ' '.join([entity1, first_entity, entity2, second_entity, Entity_Type["End"]])
                 role_str_list += [one_role_str]
 
             role_str_list_str = ' '.join(role_str_list)
-            relation_str_rep = f"{type_start} {relation_type} {role_str_list_str} {relation_type} {type_end}"
+            relation_str_rep = f"{Relation_start} {relation_type} {role_str_list_str} {relation_type} {Relation_end}"
             relation_str_rep_list += [relation_str_rep]
-        
+
         source_text = token_separator.join(tokens)
         target_text = ' '.join(relation_str_rep_list)
-
         if not multi_tree:
-            target_text = f'{type_start} ' + \
-                          ' '.join(relation_str_rep_list) + f' {type_end}'
+            target_text = f'{Relation_start} ' + \
+                          ' '.join(relation_str_rep_list) + f' {Relation_end}'
 
         return source_text, target_text
 

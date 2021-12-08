@@ -4,7 +4,7 @@ import os
 import json
 from collections import Counter, defaultdict
 from data_convert.format.text2tree import Text2Tree
-from data_convert.task_format.event_extraction import Event, DyIEPP
+from data_convert.task_format.event_extraction import Event
 from data_convert.utils import read_file, check_output, data_counter_to_table, get_schema, output_schema
 from nltk.corpus import stopwords
 
@@ -62,15 +62,15 @@ def convert_file_tuple(file_tuple, data_class=Event, target_class=Text2Tree,
                 relation_output.write(json.dumps(
                     {'text': source, 'relation': target}, ensure_ascii=False) + '\n')
 
-                span_source, span_target = target_class.annotate_span(
-                    tokens=sentence['tokens'],
-                    predicate_arguments=sentence['relations'],
-                    zh=zh,
-                    mark_tree=mark_tree
-                )
+                # span_source, span_target = target_class.annotate_span(
+                #     tokens=sentence['tokens'],
+                #     predicate_arguments=sentence['relations'],
+                #     zh=zh,
+                #     mark_tree=mark_tree
+                # )
 
-                span_relation_output.write(
-                    json.dumps({'text': span_source, 'relation': span_target}, ensure_ascii=False) + '\n')
+                # span_relation_output.write(
+                #     json.dumps({'text': span_source, 'relation': span_target}, ensure_ascii=False) + '\n')
 
         relation_output.close()
         span_relation_output.close()
@@ -128,18 +128,15 @@ def convert_sci_event(output_folder='data/new_text2tree/sci_relastion_', type_fo
 
 if __name__ == "__main__":
     type_format_name = 'subtype'
-    convert_dyiepp_event("data/new_text2tree/dyiepp_ace2005_%s" % type_format_name,
-                         type_format=type_format_name,
-                         ignore_nonevent=False, mark_tree=False,
-                         )
-
     convert_ace2005_event("data/new_text2tree/one_ie_ace2005_%s" % type_format_name,
                           type_format=type_format_name,
                           ignore_nonevent=False,
                           mark_tree=False
                           )
-
+    """
     convert_sci_event("data/new_text2tree/sci_relation_%s" % type_format_name,
                       type_format=type_format_name,
                       ignore_nonevent=False,
                       mark_tree=False)
+    """
+    
