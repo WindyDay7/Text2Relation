@@ -83,7 +83,9 @@ class ConstraintSeq2SeqTrainer(Seq2SeqTrainer):
     def __init__(self, decoding_type_schema=None, decoding_format='tree', source_prefix=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        # decoding_format is tree format
         self.decoding_format = decoding_format
+        # decoding_type_schema is the relation list
         self.decoding_type_schema = decoding_type_schema
 
         # Label smoothing by sum token loss, different from different Label smootheing

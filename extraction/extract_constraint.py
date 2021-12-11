@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 from typing import List, Dict
 
-from data_convert.format.text2tree import type_start, type_end
+from data_convert.format.text2tree import Relation_start, Relation_end, Entity_Type, Entity_End
 from extraction.label_tree import get_label_name_tree
 
 import os
@@ -36,6 +36,8 @@ def find_bracket_position(generated_text, _type_start, _type_end):
         if char in bracket_position:
             bracket_position[char] += [index]
     return bracket_position
+
+
 
 
 def generated_search_src_sequence(generated, src_sequence, end_sequence_search_tokens=None):
@@ -121,12 +123,15 @@ class TreeConstraintDecoder(ConstraintDecoder):
     """
     def __init__(self, tokenizer, type_schema, *args, **kwargs):
         super().__init__(tokenizer, *args, **kwargs)
-        self.tree_end = '<tree-end>'
+        self.Prediction_end = '<Prediction-end>'
         self.relation_tree = get_label_name_tree(
             type_schema.type_list, self.tokenizer, end_symbol=self.tree_end)
-        self.type_start = self.tokenizer.convert_tokens_to_ids([type_start])[0]
-        self.type_end = self.tokenizer.convert_tokens_to_ids([type_end])[0]
-
+        self.relation_start = self.tokenizer.convert_tokens_to_ids([Relation_start])[0]
+        self.relation_end = self.tokenizer.convert_tokens_to_ids([Relation_end])[0]
+        self.entity_token = dict()
+        for entity in Entity_Type:
+            self.entity_token[entity] = self.tokenizer.convert_tokens_to_ids([Entity_Type[entity]])[0]
+        self.entity_end = self.tokenizer.convert_tokens_to_ids([Entity_End])[0]
     def check_state(self, tgt_generated):
         """
         return the generated tree state and the last special token's index, 
@@ -134,7 +139,7 @@ class TreeConstraintDecoder(ConstraintDecoder):
         if tgt_generated[-1] == self.tokenizer.pad_token_id:
             return 'start', -1
 
-        special_token_set = {self.type_start, self.type_end}
+        special_token_set = {self.relation_start, self.relation_end}
         # the indexes of special tokens in the generated sentences
         # and the kind of special token
         special_index_token = list(
@@ -146,25 +151,42 @@ class TreeConstraintDecoder(ConstraintDecoder):
             if last_special_token != self.type_start:
                 return 'error', 0
 
+        entity_token_set = set()
+        for entity in self.entity_token:
+            entity_token_set.add(self.entity_token[entity])
+        special_entity_index_token = list(
+            filter(lambda x: x[1] in entity_token_set, list(enumerate(tgt_generated))))
+        special_end_index_token = list(
+            filter(lambda x: x[1] == self.entity_end, list(enumerate(tgt_generated))))
+        
         bracket_position = find_bracket_position(
             tgt_generated, _type_start=self.type_start, _type_end=self.type_end)
         start_number, end_number = len(bracket_position[self.type_start]), len(
             bracket_position[self.type_end])
 
+        entity_number = len(special_entity_index_token)
+        entity_end = len(special_end_index_token)
+
+        # New kind of relation or the end of the prediction 
         if start_number == end_number:
-            return 'end_generate', -1
+            return 'new_or_end', -1
         # generate the first relation
         if start_number == end_number + 1:
-            state = 'start_first_generation'
-        # generation the relation text
-        elif start_number == end_number + 2:
-            state = 'generate_relation'
-        # generate the first entity
-        elif start_number == end_number + 3:
-            state = 'generate_role_1'
-        # generate the second entity
-        elif start_number == end_number + 4:
-            state = "generate_role_2"
+            # relation type and start of the first entity pair,
+            if(entity_number == (2*entity_end)):
+                state = 'start_entity'
+                if entity_number != 0:
+                    last_special_index, last_special_token = special_end_index_token[-1]
+            # spredicit the first entity text span or second Entity type special token
+            elif (entity_number == (entity_end*2 + 1)):
+                state = 'entity1_spans'
+                last_special_index, last_special_token = special_entity_index_token[-1]
+            # predict entity mentions(text span) or Entity_end special token
+            elif (entity_number == (entity_end*2 + 2)):
+                state = 'entity2_spans'
+                last_special_index, last_special_token = special_entity_index_token[-1]
+            else:
+                state = 'error'
         else:
             state = 'error'
         return state, last_special_index
@@ -188,7 +210,7 @@ class TreeConstraintDecoder(ConstraintDecoder):
             # wheather the event type text is end, means event type text have been generated
             is_tree_end = len(tree) == 1 and self.tree_end in tree
             if is_tree_end:
-                valid_token = [self.type_start, self.type_end]
+                valid_token = list(self.entity_token.values())
                 return valid_token
             # if end trigger token appears in the generated text 
             if self.tree_end in tree:
@@ -222,53 +244,50 @@ class TreeConstraintDecoder(ConstraintDecoder):
             print("Tgt:", tgt_generated)
             valid_tokens = [self.tokenizer.eos_token_id]
 
-        elif state == 'start':
-            valid_tokens = [self.type_start]
+        elif state == 'new_or_end':
+            valid_tokens = [self.relation_start, self.tokenizer.eos_token_id]
 
-        elif state == 'start_first_generation':
-            valid_tokens = [self.type_start, self.type_end]
-
-        elif state == 'generate_relation':
-            # this part might be the first trigger generation, or the next role generation
-            if tgt_generated[-1] == self.type_start:
-                # Start Event Label
-                return list(self.relation_tree.keys())
-
-            elif tgt_generated[-1] == self.type_end:
-                # EVENT_TYPE_LEFT: Start a new entity span
-                # EVENT_TYPE_RIGHT: End this relation
-                return [self.type_start, self.type_end] + list(self.relation_tree.keys())
+        elif state == 'start_entity':
+            if(tgt_generated[-1] == self.relation_start):
+                valid_tokens = list(self.relation_tree.keys())
+            elif (tgt_generated[-1] == self.entity_end):
+                valid_tokens = list(self.entity_token.values()) + [self.relation_end]
             else:
-                # generate the triggrt span, for example "name: Zhang ling"
                 valid_tokens = self.search_prefix_tree_and_sequence(
                     generated=tgt_generated[index + 1:],
                     prefix_tree=self.relation_tree,
                 )
 
-        elif state == 'generate_role_1':
-            # which position should be generated for new token
-            # tgt_generated[index] is the last special token
-            if tgt_generated[-1] == self.type_end:
-                return [self.type_end]
+        elif state == 'entity1_spans':
+            # this part might be the first entity text span, or next entity start token
+            if tgt_generated[-1] in list(self.entity_token.values()):
+                # in text span
+                valid_tokens = self.search_prefix_tree_and_sequence(
+                    generated=tgt_generated[index + 1:],
+                    prefix_tree=self.relation_tree,
+                )
+            else:
+                # in the entity text span or next start entity token
+                valid_tokens = self.search_prefix_tree_and_sequence(
+                    generated=tgt_generated[index + 1:],
+                    prefix_tree=self.relation_tree,
+                )
+                valid_tokens += list(self.entity_token.values())
 
-            generated = tgt_generated[index + 1:]
-            valid_tokens = generated_search_src_sequence(
-                generated=generated,
-                src_sequence=src_sentence,
-                end_sequence_search_tokens=[self.type_start],
-            )
-
-        elif state == 'generate_role_2':
-            generated = tgt_generated[index + 1:]
-            valid_tokens = generated_search_src_sequence(
-                generated=generated,
-                src_sequence=src_sentence,
-                end_sequence_search_tokens=[self.type_end]
-            )
-
-        elif state == 'end_generate':
-            valid_tokens = [self.tokenizer.eos_token_id]
-
+        elif state == 'entity2_spans':
+            if tgt_generated[-1] in list(self.entity_token.values()):
+                # in text span
+                valid_tokens = self.search_prefix_tree_and_sequence(
+                    generated=tgt_generated[index + 1:],
+                    prefix_tree=self.relation_tree,
+                )
+            else:
+                # end of the two entities
+                valid_tokens = self.search_prefix_tree_and_sequence(
+                    generated=tgt_generated[index + 1:],
+                    prefix_tree=self.relation_tree,
+                )
+                valid_tokens += [self.entity_end]
         else:
             raise NotImplementedError(
                 'State `%s` for %s is not implemented.' % (state, self.__class__))

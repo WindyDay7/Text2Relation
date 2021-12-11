@@ -1787,3 +1787,47 @@ RuntimeError: Cannot enter into task <Task pending name='Task-12' coro=<HTTP1Ser
 [W 17:20:51.989 NotebookApp] WebSocket ping timeout after 119896 ms.
 [I 17:20:56.992 NotebookApp] Starting buffering for f0cb3905-82b9-4357-b2b9-6a22b435d67d:94e8984ed5334fe98c946ec53d52bb7b
 >>>>>>> 56933c10e91c222253c38173ea5e50da2ffe7e56
+[I 22:11:11.129 NotebookApp] [jupyter_nbextensions_configurator] enabled 0.4.1
+[I 22:11:11.130 NotebookApp] Serving notebooks from local directory: /home/pesante/study/Text2Relation
+[I 22:11:11.130 NotebookApp] Jupyter Notebook 6.4.6 is running at:
+[I 22:11:11.130 NotebookApp] http://localhost:9990/
+[I 22:11:11.130 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 22:11:11.716 NotebookApp] 302 GET / (127.0.0.1) 0.510000ms
+[I 10:06:51.894 NotebookApp] 302 GET / (127.0.0.1) 0.460000ms
+[W 10:10:09.112 NotebookApp] Notebook Read_sci.ipynb is not trusted
+[I 10:10:09.603 NotebookApp] Kernel started: 058bc7bc-ae41-42c1-be2e-2ec837aa91e1, name: python3
+[W 10:10:14.664 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20211210221111 (127.0.0.1) 7.200000ms referer=http://127.0.0.1:1234/notebooks/Read_sci.ipynb
+[W 10:10:48.666 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20211210221111 (127.0.0.1) 2.170000ms referer=http://127.0.0.1:1234/notebooks/Read_sci.ipynb
+[I 10:12:10.341 NotebookApp] Saving file at /Read_sci.ipynb
+[I 10:14:10.306 NotebookApp] Saving file at /Read_sci.ipynb
+[I 10:28:56.376 NotebookApp] Saving file at /Read_sci.ipynb
+[I 10:29:00.830 NotebookApp] Saving file at /Read_sci.ipynb
+[I 10:29:01.468 NotebookApp] Saving file at /Read_sci.ipynb
+[I 10:30:09.746 NotebookApp] Saving file at /Read_sci.ipynb
+[I 11:46:10.445 NotebookApp] Saving file at /Read_sci.ipynb
+[I 11:48:10.470 NotebookApp] Saving file at /Read_sci.ipynb
+[I 11:50:10.472 NotebookApp] Saving file at /Read_sci.ipynb
+[I 11:52:09.856 NotebookApp] Saving file at /Read_sci.ipynb
+[I 11:54:10.468 NotebookApp] Saving file at /Read_sci.ipynb
+[W 12:04:41.522 NotebookApp] 400 GET /api/contents/Test.ipynb?type=notebook&_=1639191882043 (127.0.0.1): Unreadable Notebook: /home/pesante/study/Text2Relation/Test.ipynb NotJSONError('Notebook does not appear to be JSON: \'{\\n "cells": [\\n  {\\n   "cell_type": "c...')
+[W 12:04:41.522 NotebookApp] Unreadable Notebook: /home/pesante/study/Text2Relation/Test.ipynb NotJSONError('Notebook does not appear to be JSON: \'{\\n "cells": [\\n  {\\n   "cell_type": "c...')
+[W 12:04:41.522 NotebookApp] 400 GET /api/contents/Test.ipynb?type=notebook&_=1639191882043 (127.0.0.1) 2.190000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:04:41.748 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20211210221111 (127.0.0.1) 1.680000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:04:43.604 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20211210221111 (127.0.0.1) 2.060000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:04:48.157 NotebookApp] 400 GET /api/contents/Test.ipynb?type=notebook&_=1639191889079 (127.0.0.1): Unreadable Notebook: /home/pesante/study/Text2Relation/Test.ipynb NotJSONError('Notebook does not appear to be JSON: \'{\\n "cells": [\\n  {\\n   "cell_type": "c...')
+[W 12:04:48.158 NotebookApp] Unreadable Notebook: /home/pesante/study/Text2Relation/Test.ipynb NotJSONError('Notebook does not appear to be JSON: \'{\\n "cells": [\\n  {\\n   "cell_type": "c...')
+[W 12:04:48.158 NotebookApp] 400 GET /api/contents/Test.ipynb?type=notebook&_=1639191889079 (127.0.0.1) 1.930000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:04:48.426 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20211210221111 (127.0.0.1) 1.930000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:06:32.155 NotebookApp] 400 GET /api/contents/Test.ipynb?type=notebook&_=1639191993159 (127.0.0.1): Unreadable Notebook: /home/pesante/study/Text2Relation/Test.ipynb NotJSONError('Notebook does not appear to be JSON: \'{\\n "cells": [\\n  {\\n   "cell_type": "c...')
+[W 12:06:32.155 NotebookApp] Unreadable Notebook: /home/pesante/study/Text2Relation/Test.ipynb NotJSONError('Notebook does not appear to be JSON: \'{\\n "cells": [\\n  {\\n   "cell_type": "c...')
+[W 12:06:32.155 NotebookApp] 400 GET /api/contents/Test.ipynb?type=notebook&_=1639191993159 (127.0.0.1) 2.050000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:06:32.301 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20211210221111 (127.0.0.1) 1.930000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[W 12:06:33.585 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20211210221111 (127.0.0.1) 2.380000ms referer=http://127.0.0.1:1234/notebooks/Test.ipynb
+[I 12:06:39.898 NotebookApp] Creating new notebook in 
+[W 12:06:42.880 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20211210221111 (127.0.0.1) 1.940000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+[I 12:06:42.993 NotebookApp] Kernel started: 1755c43a-5d92-4430-bbbe-77953e828893, name: python3
+[W 12:06:44.393 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20211210221111 (127.0.0.1) 1.790000ms referer=http://127.0.0.1:1234/notebooks/Untitled.ipynb?kernel_name=python3
+[I 12:08:43.155 NotebookApp] Saving file at /Untitled.ipynb
+[I 12:24:09.945 NotebookApp] Saving file at /Read_sci.ipynb
+[I 12:26:09.811 NotebookApp] Saving file at /Read_sci.ipynb
+[I 12:28:09.916 NotebookApp] Saving file at /Read_sci.ipynb

@@ -12,7 +12,8 @@ Temp_start = '<Temp_S>'
 Temp_end = '<Temp_E>'
 Relation_start = '<Relation_S>'
 Relation_end = '<Relation_E>'
-Entity_Type = {"ORG":"<ORG>", "VEH":"<VEH>","WEA":"<WEA>", "LOC":"<LOC>", "FAC":"<FAC>","PER":"<PER>", "GPE":"<PER>", "End":"<End>"}
+Entity_Type = {"ORG":"<ORG>", "VEH":"<VEH>","WEA":"<WEA>", "LOC":"<LOC>", "FAC":"<FAC>","PER":"<PER>", "GPE":"<PER>"}
+Entity_End = "<End>"
 
 
 class Text2Tree(TargetFormat):
