@@ -23,7 +23,7 @@ def print_tree(tree):
     list_dictionary(tree)
 
 
-def get_label_name_tree(label_name_list, tokenizer, end_symbol='<end>'):
+def get_label_name_tree(label_name_list, tokenizer, end_symbol='<end_tree>'):
     # Change recurring into non-recurring labels, 
     sub_token_tree = dict()
 

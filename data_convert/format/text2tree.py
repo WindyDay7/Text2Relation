@@ -12,7 +12,7 @@ Temp_start = '<Temp_S>'
 Temp_end = '<Temp_E>'
 Relation_start = '<Relation_S>'
 Relation_end = '<Relation_E>'
-Entity_Type = {"ORG":"<ORG>", "VEH":"<VEH>","WEA":"<WEA>", "LOC":"<LOC>", "FAC":"<FAC>","PER":"<PER>", "GPE":"<PER>"}
+Entity_Type = {"ORG":"<ORG>", "VEH":"<VEH>","WEA":"<WEA>", "LOC":"<LOC>", "FAC":"<FAC>","PER":"<PER>", "GPE":"<GPE>"}
 Entity_End = "<End>"
 
 
@@ -45,16 +45,6 @@ class Text2Tree(TargetFormat):
         for predicate_argument in predicate_arguments:
             relation_type = predicate_argument['type']
 
-            # predicate_argument['tokens'] is the trigger index
-            # tokens is the sentence tokens, we get the trigger text span here
-            # predicate_text = get_str_from_tokens(predicate_argument['tokens'], tokens, separator=token_separator)
-
-            # prefix_tokens[predicate_argument['tokens'][0]] = ['[ ']
-            # suffix_tokens[predicate_argument['tokens'][-1]] = [' ]']
-            if relation_type != "PART-WHOLE" and relation_type != "ORG-AFF" and relation_type != "GEN-AFF":
-                continue
-            # print(predicate_argument)
-            # role_name is the argument role, role_tokens are corresponding text span index
             role_str_list = list()
             for relation_pair in predicate_argument['arguments']:
                 # get the role text span from role tokens index
@@ -64,18 +54,18 @@ class Text2Tree(TargetFormat):
                 second_entity = get_str_from_tokens(relation_pair[2], tokens, separator=token_separator)
                 entity1 = Entity_Type[relation_pair[1]]
                 entity2 = Entity_Type[relation_pair[3]]
-                one_role_str = ' '.join([entity1, first_entity, entity2, second_entity, Entity_Type["End"]])
+                one_role_str = ' '.join([entity1, first_entity, entity2, second_entity, Entity_End])
                 role_str_list += [one_role_str]
 
             role_str_list_str = ' '.join(role_str_list)
-            relation_str_rep = f"{Relation_start} {relation_type} {role_str_list_str} {relation_type} {Relation_end}"
+            relation_str_rep = f"{Relation_start} {relation_type} {role_str_list_str} {Relation_end}"
             relation_str_rep_list += [relation_str_rep]
 
         source_text = token_separator.join(tokens)
         target_text = ' '.join(relation_str_rep_list)
         if not multi_tree:
-            target_text = f'{Relation_start} ' + \
-                          ' '.join(relation_str_rep_list) + f' {Relation_end}'
+            target_text = f'{Temp_start} ' + \
+                          ' '.join(relation_str_rep_list) + f' {Temp_end}'
 
         return source_text, target_text
 

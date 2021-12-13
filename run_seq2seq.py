@@ -412,7 +412,10 @@ def main():
     if tokenizer.encode("<extra_id_0> <extra_id_1>") != [32099, 32098, 32097, 1]:
         # For non-t5 tokenizer
         tokenizer.add_special_tokens(
-            {"additional_special_tokens": ["<extra_id_0>", "<extra_id_1>"]})
+            {"additional_special_tokens": ["<Temp_S>", "<Relation_S>", "<Relation_E>", \
+                "<ORG>", "<VEH>", "<WEA>", "<LOC>","<FAC>","<PER>","<GPE>", "<Temp_E>"]})
+
+        
         model.resize_token_embeddings(len(tokenizer))
 
     # Set decoder_start_token_id
