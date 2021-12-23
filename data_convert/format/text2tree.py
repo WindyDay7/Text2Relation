@@ -13,13 +13,15 @@ Temp_end = '<Temp_E>'
 Relation_start = '<Relation_S>'
 Relation_end = '<Relation_E>'
 Entity_Type = {"ORG":"<ORG>", "VEH":"<VEH>","WEA":"<WEA>", "LOC":"<LOC>", "FAC":"<FAC>","PER":"<PER>", "GPE":"<GPE>"}
+Sci_Entity_Type = {'Metric':'<Metric>', 'Task':'<Task>',
+                   'OtherScientificTerm': '<OtherScientificTerm>', 'Generic': '<Generic>', 'Material':'<Material>', 'Method':'<Method>'}
 Entity_End = "<End>"
 
 
 class Text2Tree(TargetFormat):
 
     @staticmethod
-    def annotate_predicate_arguments(tokens, predicate_arguments, mark_tree=False, multi_tree=False, zh=False):
+    def annotate_predicate_arguments(tokens, predicate_arguments,Entity_Type = dict(), mark_tree=False, multi_tree=False, zh=False):
         """
 
         :param tokens:
@@ -54,7 +56,7 @@ class Text2Tree(TargetFormat):
                 second_entity = get_str_from_tokens(relation_pair[2], tokens, separator=token_separator)
                 entity1 = Entity_Type[relation_pair[1]]
                 entity2 = Entity_Type[relation_pair[3]]
-                one_role_str = ' '.join([entity1, first_entity, entity2, second_entity, Entity_End])
+                one_role_str = ' '.join([Entity_End,first_entity, entity1, second_entity,entity2])
                 role_str_list += [one_role_str]
 
             role_str_list_str = ' '.join(role_str_list)
@@ -69,7 +71,26 @@ class Text2Tree(TargetFormat):
 
         return source_text, target_text
 
-    
+    def annotate_predicate_entities(tokens, entities, Entity_Type= dict(), mark_tree=False, multi_tree=False, zh=False):
+
+        token_separator = '' if zh else ' '
+        entity_str_rep_list = list()
+        # if(len(predicate_arguments)>2):
+        #     print(predicate_arguments)
+        # print("entitiesfe: ", entities)
+        for entity in entities:
+            entity_text = get_str_from_tokens(entity[0], tokens, separator=token_separator)
+            entity_type = Entity_Type[entity[1]]
+            entity_str = ' '.join([entity_text, entity_type])
+            entity_str_rep_list += [entity_str]
+
+        source_text = token_separator.join(tokens)
+        target_text = ' '.join(entity_str_rep_list)
+        if not multi_tree:
+            target_text = f'{Temp_start} ' + \
+                          ' '.join(entity_str_rep_list) + f' {Temp_end}'
+
+        return source_text, target_text
 
 
 if __name__ == "__main__":

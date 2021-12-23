@@ -318,93 +318,51 @@ class TreeConstraintDecoder(ConstraintDecoder):
 class SpanConstraintDecoder(ConstraintDecoder):
     def __init__(self, tokenizer, type_schema, *args, **kwargs):
         super().__init__(tokenizer, *args, **kwargs)
-        self.tree_end = '<tree-end>'
-        self.type_tree = get_label_name_tree(type_schema.type_list + type_schema.role_list,
-                                             tokenizer=self.tokenizer,
-                                             end_symbol=self.tree_end)
-        self.type_start = self.tokenizer.convert_tokens_to_ids([type_start])[0]
-        self.type_end = self.tokenizer.convert_tokens_to_ids([type_end])[0]
+        self.temp_start = self.tokenizer.convert_tokens_to_ids([Temp_start])[0]
+        self.temp_end = self.tokenizer.convert_tokens_to_ids([Temp_end])[0]
+        self.entity_token = dict()
+        for entity in Entity_Type:
+            self.entity_token[entity] = self.tokenizer.convert_tokens_to_ids([Entity_Type[entity]])[0]
+        self.entity_end = self.tokenizer.convert_tokens_to_ids([Entity_End])[0]
 
     def check_state(self, tgt_generated):
+        """
+        return the generated tree state and the last special token's index, 
+        """
         if tgt_generated[-1] == self.tokenizer.pad_token_id:
             return 'start', -1
 
-        special_token_set = {self.type_start, self.type_end}
-        special_index_token = list(
-            filter(lambda x: x[1] in special_token_set, list(enumerate(tgt_generated))))
+        if self.temp_end in tgt_generated:
+            return 'end', -1
 
-        last_special_index, last_special_token = special_index_token[-1]
+        entity_token_set = set()
+        for entity in self.entity_token:
+            entity_token_set.add(self.entity_token[entity])
+        special_entity_index_token = list(
+            filter(lambda x: x[1] in entity_token_set, list(enumerate(tgt_generated))))
 
-        if len(special_index_token) == 1:
-            if last_special_token != self.type_start:
-                return 'error', 0
-
-        bracket_position = find_bracket_position(
-            tgt_generated, _type_start=self.type_start, _type_end=self.type_end)
-        start_number, end_number = len(bracket_position[self.type_start]), len(
-            bracket_position[self.type_end])
-
-        if start_number == end_number:
-            return 'end_generate', -1
-        if start_number == end_number + 1:
-            state = 'start_first_generation'
-        elif start_number == end_number + 2:
-            state = 'generate_span'
+        last_special_index = 0
+        entity_number = len(special_entity_index_token)
+        if entity_number == 0:
+            state = 'start_entity'
         else:
-            state = 'error'
+            last_special_index, last_special_token = special_entity_index_token[-1]
+            state = 'entity'
+
         return state, last_special_index
-
-    def search_prefix_tree_and_sequence(self, generated: List[str], prefix_tree: Dict, src_sentence: List[str],
-                                        end_sequence_search_tokens: List[str] = None):
-        """
-        Generate Type Name + Text Span
-        :param generated:
-        :param prefix_tree:
-        :param src_sentence:
-        :param end_sequence_search_tokens:
-        :return:
-        """
-        tree = prefix_tree
-        for index, token in enumerate(generated):
-            tree = tree[token]
-            is_tree_end = len(tree) == 1 and self.tree_end in tree
-
-            if is_tree_end:
-                valid_token = generated_search_src_sequence(
-                    generated=generated[index + 1:],
-                    src_sequence=src_sentence,
-                    end_sequence_search_tokens=end_sequence_search_tokens,
-                )
-                return valid_token
-
-            if self.tree_end in tree:
-                try:
-                    valid_token = generated_search_src_sequence(
-                        generated=generated[index + 1:],
-                        src_sequence=src_sentence,
-                        end_sequence_search_tokens=end_sequence_search_tokens,
-                    )
-                    return valid_token
-                except IndexError:
-                    # Still search tree
-                    continue
-
-        valid_token = list(tree.keys())
-        return valid_token
 
     def get_state_valid_tokens(self, src_sentence, tgt_generated):
         """
-        :param src_sentence:
-        :param tgt_generated:
+        :param src_sentence is List of ids, there are token ids
+        :param tgt_generated is also List of ids
         :return:
             List[str], valid token list
         """
         if self.tokenizer.eos_token_id in src_sentence:
-            src_sentence = src_sentence[:src_sentence.index(
-                self.tokenizer.eos_token_id)]
+            src_sentence = src_sentence[:src_sentence.index(self.tokenizer.eos_token_id)]
 
         state, index = self.check_state(tgt_generated)
-
+        # print(state)
         print("State: %s" % state) if debug else None
 
         if state == 'error':
@@ -412,37 +370,41 @@ class SpanConstraintDecoder(ConstraintDecoder):
             print("Src:", src_sentence)
             print("Tgt:", tgt_generated)
             valid_tokens = [self.tokenizer.eos_token_id]
-
-        elif state == 'start':
-            valid_tokens = [self.type_start]
-
-        elif state == 'start_first_generation':
-            valid_tokens = [self.type_start, self.type_end]
-
-        elif state == 'generate_span':
-
-            if tgt_generated[-1] == self.type_start:
-                # Start Event Label
-                return list(self.type_tree.keys())
-
-            elif tgt_generated[-1] == self.type_end:
-                raise RuntimeError('Invalid %s in %s' %
-                                   (self.type_end, tgt_generated))
-
-            else:
-                valid_tokens = self.search_prefix_tree_and_sequence(
-                    generated=tgt_generated[index + 1:],
-                    prefix_tree=self.type_tree,
-                    src_sentence=src_sentence,
-                    end_sequence_search_tokens=[self.type_end]
-                )
-
-        elif state == 'end_generate':
+        elif state == 'end':
             valid_tokens = [self.tokenizer.eos_token_id]
 
+        elif state == 'start':
+            valid_tokens = [self.temp_start]
+        elif state == 'start_entity':
+            generated = tgt_generated[index + 1:]
+            valid_tokens = generated_search_src_sequence(
+                generated=generated,
+                src_sequence=src_sentence
+            )
+            valid_tokens += list(self.entity_token.values())   
+
+        elif state == 'entity':
+            # this part might be the first entity text span, or next entity start token
+            if tgt_generated[-1] in list(self.entity_token.values()):
+                # in text span
+                generated = tgt_generated[index + 1:]
+                valid_tokens = generated_search_src_sequence(
+                    generated=generated,
+                    src_sequence=src_sentence
+                )  
+                valid_tokens += [self.temp_end]           
+            else:
+                # in the entity text span or next start entity token
+                generated = tgt_generated[index + 1:]
+                valid_tokens = generated_search_src_sequence(
+                    generated=generated,
+                    src_sequence=src_sentence
+                ) 
+                valid_tokens += list(self.entity_token.values())   
         else:
             raise NotImplementedError(
                 'State `%s` for %s is not implemented.' % (state, self.__class__))
 
-        print("Valid: %s" % valid_tokens) if debug else None
+        print("Valid: %s" % self.tokenizer.convert_ids_to_tokens(
+            valid_tokens)) if debug else None
         return valid_tokens

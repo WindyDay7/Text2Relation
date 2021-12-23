@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 # -*- coding:utf-8 -*-
 
+# From NER to Relation, we should change decoding format, and dataset
 EXP_ID=$(date +%F-%H-%M-$RANDOM)
 export CUDA_VISIBLE_DEVICES="1"
 export batch_size="8"
 export model_name="./pretrain_model"
-export data_name=one_ie_ace2005_subtype
+export data_name=conll04_relation_subtype
 export lr=5e-5
 export task_name="relation"
 export seed="421"
 export lr_scheduler=constant_with_warmup
 export label_smoothing="0"
-export epoch=35
+export epoch=80
 export decoding_format='tree'
 export eval_steps=500
 export warmup_steps=0
-export constraint_decoding='--constraint_decoding'
+export constraint_decoding=""
 
 OPTS=$(getopt -o b:d:m:i:t:s:l:f: --long batch:,device:,model:,data:,task:,seed:,lr:,lr_scheduler:,label_smoothing:,epoch:,format:,eval_steps:,warmup_steps:,wo_constraint_decoding -n 'parse-options' -- "$@")
 
@@ -112,7 +113,7 @@ done
 model_name_log=$(echo ${model_name} | sed -s "s/\//_/g")
 
 model_folder=models/CF_${EXP_ID}_${model_name_log}_${decoding_format}_${data_name}_${lr_scheduler}_lr${lr}_ls${label_smoothing}_${batch_size}_wu${warmup_steps}
-data_folder=data/new_text2${decoding_format}/${data_name}
+data_folder=data/new_text2tree/${data_name}
 
 export TOKENIZERS_PARALLELISM=false
 
