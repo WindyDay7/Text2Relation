@@ -208,7 +208,7 @@ class DataTrainingArguments:
     target_lang: Optional[str] = field(
         default=None, metadata={"help": "Target language id for translation."})
     num_beams: Optional[int] = field(
-        default=None,
+        default=4,
         metadata={
             "help": "Number of beams to use for evaluation. This argument will be passed to ``model.generate``, "
                     "which is used during ``evaluate`` and ``predict``."
@@ -414,15 +414,15 @@ def main():
         # tokenizer.add_special_tokens(
         #     {"additional_special_tokens": ["<Temp_S>", "<Relation_S>", "<Relation_E>", \
         #                                    "<Metric>", "<Task>", "<OtherScientificTerm>", "<Generic>", "<Material>", "<Method>", "<End>", "<Temp_E>"]})
-        tokenizer.add_special_tokens(
-            {"additional_special_tokens": ["<Temp_S>", "<Relation_S>", "<Relation_E>", \
-                                           "<Org>", "<Other>", "<Loc>", "<Generic>", "<Peop>", "<End>", "<Temp_E>"]})
+        # tokenizer.add_special_tokens(
+        #     {"additional_special_tokens": ["<Temp_S>", "<Relation_S>", "<Relation_E>", \
+        #                                    "<Org>", "<Other>", "<Loc>", "<Peop>", "<End>", "<Temp_E>"]})
 
 
         # TODO for ACE dataset
-        # tokenizer.add_special_tokens(
-        #     {"additional_special_tokens": ["<Temp_S>", "<Relation_S>", "<Relation_E>", \
-        #         "<ORG>", "<VEH>", "<WEA>", "<LOC>","<FAC>","<PER>","<GPE>", "<End>", "<Temp_E>"]})
+        tokenizer.add_special_tokens(
+            {"additional_special_tokens": ["<Temp_S>", "<Relation_S>", "<Relation_E>", \
+                "<ORG>", "<VEH>", "<WEA>", "<LOC>","<FAC>","<PER>","<GPE>", "<End>", "<Temp_E>"]})
         model.resize_token_embeddings(len(tokenizer))
 
     # Set decoder_start_token_id

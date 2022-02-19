@@ -3,9 +3,6 @@
 from copy import deepcopy
 from typing import List, Counter, Tuple
 
-EVENT_EXTRACTION_KEYS = ["trigger-P", "trigger-R", "trigger-F1",
-                         "role-P", "role-R", "role-F1"]
-
 
 class PredictParser:
     def __init__(self, label_constraint):
@@ -67,11 +64,40 @@ class Metric:
         if verbose:
             print("Gold:", gold_list)
             print("Pred:", pred_list)
-        self.gold_num += len(gold_list)
-        self.pred_num += len(pred_list)
-
-        dup_gold_list = deepcopy(gold_list)
-        for pred in pred_list:
-            if pred in dup_gold_list:
-                self.tp += 1
-                dup_gold_list.remove(pred)
+        for i in range(0, len(gold_list)):
+            gold_list[i] = gold_list[i].replace(" ","")
+            pred_list[i] = pred_list[i].replace(" ","")
+        
+        for i in range(0, len(gold_list)):
+            gold_relations = gold_list[i].split("<Relation_S>")
+            gold_labels = list()
+            for gold_relation in gold_relations:
+                one_relations = gold_relation.split("<End>")
+                if len(one_relations) == 1:
+                    continue
+                relation_type = one_relations[0]
+                one_relations[-1] = one_relations[-1].replace("<Relation_E>","")
+                one_relations[-1] = one_relations[-1].replace("<Temp_E>","")
+                for j in range(1, len(one_relations)):
+                    gold_labels.append(one_relations[0]+"_"+one_relations[j])
+        #         print("gold_labels",gold_labels)
+                
+            pred_relations = pred_list[i].split("<Relation_S>")
+            pred_labels = list()
+            for pred_relation in pred_relations:
+                one_relations = pred_relation.split("<End>")
+                if len(one_relations) == 1:
+                    continue
+                relation_type = one_relations[0]
+                one_relations[-1] = one_relations[-1].replace("<Relation_E>","")
+                one_relations[-1] = one_relations[-1].replace("<Temp_E>","")
+                for k in range(1, len(one_relations)):
+                    pred_labels.append(one_relations[0]+"_"+one_relations[k])
+        #         print("pred_labels",pred_labels)
+            
+            self.gold_num += len(gold_labels)
+            self.pred_num += len(pred_labels)
+            # print("Gold Labels are: ", gold_labels)
+            for pred in pred_labels:
+                if pred in gold_labels:
+                    self.tp += 1

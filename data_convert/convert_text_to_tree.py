@@ -51,6 +51,7 @@ def convert_file_tuple(file_tuple, data_class=Event, target_class=Text2Tree,
                 source, target = target_class.annotate_predicate_arguments(
                     tokens=sentence['tokens'],
                     predicate_arguments=sentence['relations'],
+                    entities=sentence['entities'],
                     Entity_Type = entity_Type,
                     zh=zh
                 )
@@ -113,6 +114,7 @@ def convert_ace2005_event(output_folder='data/new_text2tree/ace2005_event', type
                        ignore_nonevent=ignore_nonevent,
                        mark_tree=mark_tree,
                        type_format=type_format,
+                       entity_Type=Ace_Entity_Type,
                        )
 
 
@@ -145,11 +147,11 @@ def convert_conll04_relation(output_folder='data/new_text2tree/conll04_relation_
 
 if __name__ == "__main__":
     type_format_name = 'subtype'
-    # convert_ace2005_event("data/new_text2tree/one_ie_ace2005_%s" % type_format_name,
-    #                       type_format=type_format_name,
-    #                       ignore_nonevent=False,
-    #                       mark_tree=False
-    #                       )
+    convert_ace2005_event("data/new_text2tree/one_ie_ace2005_%s" % type_format_name,
+                          type_format=type_format_name,
+                          ignore_nonevent=False,
+                          mark_tree=False
+                          )
     # """
     # convert_sci_event("data/new_text2tree/sci_relation_%s" % type_format_name,
     #                   type_format=type_format_name,
@@ -157,8 +159,8 @@ if __name__ == "__main__":
     #                   mark_tree=False)
     # """
 
-    convert_conll04_relation("data/new_text2tree/conll04_relation_%s" % type_format_name,
-                      type_format=type_format_name,
-                      ignore_nonevent=False,
-                      mark_tree=False)
+    # convert_conll04_relation("data/new_text2tree/conll04_relation_%s" % type_format_name,
+    #                   type_format=type_format_name,
+    #                   ignore_nonevent=False,
+    #                   mark_tree=False)
     

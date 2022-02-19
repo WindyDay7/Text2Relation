@@ -2351,3 +2351,11 @@ RuntimeError: Cannot enter into task <Task pending name='Task-12' coro=<HTTP1Ser
 [W 10:15:34.454 NotebookApp] Notebook Test.ipynb is not trusted
 [I 10:21:34.763 NotebookApp] Saving file at /Test.ipynb
 [W 10:21:34.764 NotebookApp] Notebook Test.ipynb is not trusted
+[I 12:28:50.932 NotebookApp] Starting buffering for f5b29b5b-f73b-4861-9f84-321e719bc9a9:21df5a345b8041439f73e0a649d46c6b
+[I 10:49:15.355 NotebookApp] 302 GET / (127.0.0.1) 0.460000ms
+[I 10:49:27.854 NotebookApp] Kernel shutdown: f5b29b5b-f73b-4861-9f84-321e719bc9a9
+[I 10:49:27.854 NotebookApp] Kernel shutdown: d09606f2-8f2a-4e6b-b605-831ea035b12d
+[I 10:49:27.854 NotebookApp] Kernel shutdown: ebed9a96-7060-4fa5-8481-649f96fc3dd0
+[I 10:49:35.493 NotebookApp] Shutting down on /api/shutdown request.
+[I 10:49:35.493 NotebookApp] Shutting down 0 kernels
+[I 10:49:35.494 NotebookApp] Shutting down 0 terminals

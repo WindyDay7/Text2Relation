@@ -2,21 +2,23 @@
 # -*- coding:utf-8 -*-
 
 # From NER to Relation, we should change decoding format, and dataset
+# differnet dataset, we should change tokenizer and dataset and epochs
 EXP_ID=$(date +%F-%H-%M-$RANDOM)
 export CUDA_VISIBLE_DEVICES="1"
 export batch_size="8"
 export model_name="./pretrain_model"
-export data_name=conll04_relation_subtype
-export lr=5e-5
+export data_name=one_ie_ace2005_subtype
+export lr=5e-8
 export task_name="relation"
 export seed="421"
 export lr_scheduler=constant_with_warmup
 export label_smoothing="0"
-export epoch=80
+export epoch=15
 export decoding_format='tree'
 export eval_steps=500
 export warmup_steps=0
 export constraint_decoding=""
+# --constraint_decoding"
 
 OPTS=$(getopt -o b:d:m:i:t:s:l:f: --long batch:,device:,model:,data:,task:,seed:,lr:,lr_scheduler:,label_smoothing:,epoch:,format:,eval_steps:,warmup_steps:,wo_constraint_decoding -n 'parse-options' -- "$@")
 
